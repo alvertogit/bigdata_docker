@@ -88,8 +88,8 @@ work_dir
 The system has three main components:
 
 1. Containerized [Big Data] cluster: It shall be the base of the system and it can allow to run large files processing and predictive applications.
-2. Scala applications: It shall process the available large data files and extract the relevant information that it will be used to train and feed the predictive models.
-3. Python applications: It shall calculate the probability of customers to subscribe any Premium service and shall predict the best Premium service for each potential customer.
+2. [Scala] applications: It shall process the available large data files and extract the relevant information that it will be used to train and feed the predictive models.
+3. [Python] applications: It shall employ [Python] [Data Science] libraries to use [machine learning] models for tasks such as predicition.
 
 Apart from the three main components listed above [Jupyter Notebooks] are also utilized for data analysis, modelling and testing of applications.
 
