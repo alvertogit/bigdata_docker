@@ -33,7 +33,7 @@ val sc = new SparkContext()
 val spark = SparkSession.builder.appName("ExampleApp").getOrCreate()
 import spark.implicits._	
 
-// song_test_log.csv input data format example
+// test_log.csv input data format example
 //
 // hour;userId;songId;genderId;deviceId
 // 18-10-2017 00:00:25;27103;231990117;23;1_27103

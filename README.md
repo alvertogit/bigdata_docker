@@ -1,4 +1,4 @@
-# SPARK CLUSTER USING DOCKER FOR BIG DATA AND DATA SCIENCE
+# SPARK DOCKER CLUSTER FOR BIG DATA & DATA SCIENCE
 
 This repository stores all the required components to build a containerized cluster for [Big Data] and [Data Science] applications. It allows scalable production services using technologies such as [Machine Learning] [Python] libraries, [Apache Spark] analytics engine, [Scala] language, [HDFS] and [Docker] containers among others.
 
@@ -58,7 +58,7 @@ bigdata_docker
 * **docker-compose.yml**: creates the [Spark] cluster based on [Docker] in which the applications shall run.
 * **master**: stores all configuration and working files for the [Spark] master node of the cluster created with [docker-compose].
   * **Dockerfile**: defines all required tools, virtual environment and work files to be installed in the [Spark] master node.
-  * **working_dir**: stores files employed for [Big Data] and [Data Science] applications.
+  * **work_dir**: stores files employed for [Big Data] and [Data Science] applications.
 
 ### WORK DIRECTORY CONTENT
 
