@@ -1,3 +1,18 @@
+/**
+
+Execution command example:
+
+spark-submit \
+--master local[2] \
+--driver-memory 10g \
+--class stubs.Example \
+target/example-1.0.jar \
+1 49999 \
+/usr/spark-2.3.1/work_dir/data/test_log.csv \
+/usr/spark-2.3.1/work_dir/data/result_log
+
+*/
+
 package stubs
 
 import org.apache.spark.SparkContext

@@ -68,7 +68,7 @@ The **work_dir** folder has the following structure:
 work_dir
 ├── datascience35.yaml
 ├── data
-│   └── song_test_log.csv
+│   └── test_log.csv
 ├── notebooks
 │   └── Example.ipynb
 ├── python_apps
@@ -81,23 +81,23 @@ work_dir
 * **data**: folder to contain raw, processed and test data.
 * **notebooks**: [Jupyter Notebooks] for data analysis, elaboration and training of prediction models and testing.
 * **scala_apps**: used to contain [Spark] applications written in [Scala]. There is one example application compiled using [Maven].
-* **python_apps**: employed to store [Python] applications. There is one example application.
+* **python_apps**: folder to store [Python] applications. There is one example application.
 
 ## ARCHITECTURE
 
 The system has three main components:
 
 1. Containerized [Big Data] cluster: It shall be the base of the system and it can allow to run large files processing and predictive applications.
-2. [Scala] applications: It shall process the available large data files and extract the relevant information that it will be used to train and feed the predictive models.
-3. [Python] applications: It shall employ [Python] [Data Science] libraries to use [machine learning] models for tasks such as predicition.
+2. [Scala] [Big Data] applications: It shall process the available large data files and extract the relevant information that it will be used to train and feed the predictive models.
+3. [Python] [Data Science] applications: It shall employ [Python] [Data Science] libraries to use [machine learning] models for tasks such as predicitions.
 
 Apart from the three main components listed above [Jupyter Notebooks] are also utilized for data analysis, modelling and testing of applications.
 
-### CONTAINERIZED CLUSTER
+### CONTAINERIZED BIG DATA CLUSTER
 
 The system has to be a scalable solution. Thus the applications shall be deployed in a [Big Data] cluster built on [Apache Spark], [Hadoop] and [Docker] containers.
 
-The reason for this choice is because [Docker] enables the use of container clustering systems to set up and scale the processing and predictive applications in production. It makes easy to add new containers to handle additional load.
+The reason for this choice is because [Docker] enables the utilization of container clustering systems to set up and scale the processing and predictive applications in production. It makes easy to add new containers to handle additional load.
 
 The containers shall run [Spark] as data engine and [HDFS] for storage in master and worker nodes. The base [Docker] image with [Spark] and [Hadoop] is from [gettyimages] available in [Docker Hub]. The [Spark] master node has also [Maven], [Miniconda] and the [Python] virtual environment installed using a personalized [Dockerfile].
 
@@ -106,7 +106,7 @@ The number of worker nodes can be increased modifying the [docker-compose] file.
 Other possible improvements in the [Big Data] cluster that shall not be implemented here could be:
 
 * Use of [Kubernetes] to manage the [Docker] containers.
-* Take advantage of [Cloud Computing] services, such as [AWS EMR], to build up a [Spark] cluster with the desired amount of resources and only use them when is required for cost efficiency.
+* Take advantage of [Cloud Computing] services, such as [AWS EMR], to build up a [Spark] cluster with the desired amount of resources and only utilize them when is required for cost efficiency.
 
 ### HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE
 
@@ -135,11 +135,11 @@ worker_1  | 2018-10-19 09:59:53 INFO  Worker:54 - Successfully registered with m
 
 To shutdown the cluster simply press 'Control+C' and wait patiently to return to shell.
 
-### SCALA APPLICATIONS
+### SCALA BIG DATA APPLICATIONS
 
-It is necessary to filter and prepare the raw data from the available files to extract the relevant information that will be used by the [machine learning] models. The approach to accomplish this task can be the employ of [Spark] applications programmed in [Scala].
+It is necessary to filter and prepare the data from [RDD]s to extract the relevant information that will be used by [Python] [Data Science] applications. The approach to accomplish this task can be the employ of [Spark] applications programmed in [Scala].
 
-A [Scala] example application is stored in **work_dir/scala_apps/example** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
+A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
 
 ```bash
 ~/usr/spark-2.3.1/work_dir/scala_apps/example$ mvn package
@@ -161,9 +161,9 @@ target/example-1.0.jar \
 
 When using larger files it is recommended to tune additional parameters to provide additional resources. e.g. "--driver-memory 10g".
 
-### PYTHON APPLICATIONS
+### PYTHON DATA SCIENCE APPLICATIONS
 
-The [Python] applications located in **work_dir/python_apps** folder could require the activation of **datascience35** virtual environment to employ [machine learning] libraries to create prediction models.
+The [Python] [Data Science] applications located in **work_dir/python_apps** folder would require the activation of **datascience35** virtual environment to employ [machine learning] libraries to create and use prediction models.
 
 The way to run the [Python] example application is simple. Just go to **work_dir/python_apps/example** folder and execute it:
 
@@ -174,7 +174,7 @@ Command to access [Spark] master node:
 ~/usr/spark-2.3.1/$
 ```
 
-Command to activate virtual environment locally in master node and run [Python] application:
+Command to activate virtual environment and run [Python] example application in master node:
 
 ```bash
 ~/usr/spark-2.3.1/$ source activate datascience35
@@ -184,7 +184,7 @@ Command to activate virtual environment locally in master node and run [Python] 
 
 ### JUPYTER NOTEBOOKS
 
-A good way to play with data, build [machine learning] models and test them is through [Jupyter Notebooks]. An example of [Jupyter Notebook] is stored in the **work_dir/notebooks** folder.
+A good way to analyze data, build [machine learning] models and test them is through [Jupyter Notebooks]. An example of [Jupyter Notebook] is stored in the **work_dir/notebooks** folder.
 
 All the required packages to run [Jupyter Notebooks] remotely in the [Spark] master node are installed so it is possible to run them through web interface. To achieve this it is necessary to use the commands shown below:
 
