@@ -6,7 +6,7 @@ This repository stores all the required components to build a containerized clus
 
 The code has been tested using:
 
-* [Apache Spark] (2.3.1): an unified analytics engine for big data processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
+* [Apache Spark] (2.3.1): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 * [Hadoop] (3.0.0): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
 * [Docker] (18.06.1-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
 * [docker-compose] (1.22): a tool for defining and running multi-container [Docker] applications.
@@ -199,8 +199,11 @@ Launch [Jupyter Notebook] service in master node.
 
 ```bash
 ~/usr/spark-2.3.1$ jupyter notebook \
---notebook-dir=/usr/spark-2.3.1/work_dir/notebooks \
---ip='0.0.0.0' --port=8888 --no-browser --allow-root
+--notebook-dir=/usr/spark-2.3.1/solution/notebooks \
+--ip='0.0.0.0' \
+--port=8888 \
+--no-browser \
+--allow-root
 ```
 
 Now [Jupyter Notebooks] stored in the master node can be run remotely. Next step is to open a local web browser and paste the URL printed after executing the launch command to access to the [Jupyter Notebook] interface, checking that the server is running fine. A similar output will be shown:
