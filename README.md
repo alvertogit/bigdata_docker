@@ -14,7 +14,7 @@ The code has been tested using:
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
-The virtual environment (<env_name>=**datascience35**) employed is generated from **datascience35.yaml** file located in the repository.
+The virtual environment (<env_name>=**datascience35**) employed for [Data Science] applications is generated from **datascience35.yaml** file located in the repository.
 
 The main components of this virtual environment are listed below:
 
@@ -48,6 +48,11 @@ The **bigdata_docker** main folder contains subfolders, application and data fil
 
 ```bash
 bigdata_docker
+├── conf
+│   ├── master
+│   └── worker
+├── data
+│   └── test_log.csv
 ├── master
 │   ├── Dockerfile
 │   └── work_dir
@@ -55,6 +60,8 @@ bigdata_docker
 └── README.md
 ```
 
+* **conf**: stores [Spark] configuration files for master and worker nodes. These folders are mapped as volumes in the [docker-compose] file and they can be accessed from containers through **/conf** path.
+* **data**: folder to contain raw, processed and test data. It is mapped as volume in [docker-compose] and it can be accessed from containers through **/tmp/data** path.
 * **docker-compose.yml**: creates the [Spark] cluster based on [Docker] in which the applications shall run.
 * **master**: stores all configuration and working files for the [Spark] master node of the cluster created with [docker-compose].
   * **Dockerfile**: defines all required tools, virtual environment and work files to be installed in the [Spark] master node.
@@ -67,8 +74,6 @@ The **work_dir** folder has the following structure:
 ```bash
 work_dir
 ├── datascience35.yaml
-├── data
-│   └── test_log.csv
 ├── notebooks
 │   └── Example.ipynb
 ├── python_apps
@@ -78,7 +83,6 @@ work_dir
 ```
 
 * **datascience35.yaml**: file which defines the dependencies for the virtual environment employed by [Python] [Data Science] applications and [Jupyter Notebooks].
-* **data**: folder to contain raw, processed and test data.
 * **notebooks**: [Jupyter Notebooks] for data analysis, elaboration and training of prediction models and testing.
 * **scala_apps**: used to contain [Spark] applications written in [Scala]. There is one example application compiled using [Maven].
 * **python_apps**: folder to store [Python] applications. There is one example application.
@@ -155,8 +159,8 @@ Command to run the **Example** application locally in the [Spark] master node wi
 --class stubs.Example \
 target/example-1.0.jar \
 1 49999 \
-/usr/spark-2.3.1/work_dir/data/test_log.csv \
-/usr/spark-2.3.1/work_dir/data/result_log
+/tmp/data/test_log.csv \
+/tmp/data/result_log
 ```
 
 When using larger files it is recommended to tune additional parameters to provide additional resources. e.g. "--driver-memory 10g".

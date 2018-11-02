@@ -8,8 +8,8 @@ spark-submit \
 --class stubs.Example \
 target/example-1.0.jar \
 1 49999 \
-/usr/spark-2.3.1/work_dir/data/test_log.csv \
-/usr/spark-2.3.1/work_dir/data/result_log
+/tmp/data/test_log.csv \
+/tmp/data/result_log
 
 */
 
@@ -56,11 +56,11 @@ import spark.implicits._
 // ...
 
 val songSchema = StructType(Array(
-StructField("user_id",IntegerType,true),
+StructField("userId",IntegerType,true),
 StructField("hour",IntegerType,true),
-StructField("song_id",IntegerType,true),
-StructField("gender_id",IntegerType,true),
-StructField("device_id",IntegerType,true)
+StructField("songId",IntegerType,true),
+StructField("genderId",IntegerType,true),
+StructField("deviceId",IntegerType,true)
 ))
 
 val songRDD = sc.textFile(path_input_log)
@@ -80,20 +80,20 @@ rec(4).split('_')(0).toInt
 
 val songDF = spark.createDataFrame(songRDDFiltered,songSchema)
 
-val distSongDF = songDF.groupBy($"user_id").agg(countDistinct($"song_id")).withColumnRenamed("count(DISTINCT song_id)","dist_song_ids")
+val distSongDF = songDF.groupBy($"userId").agg(countDistinct($"songId")).withColumnRenamed("count(DISTINCT songId)","distSongIds")
 
-val genderSongDF = songDF.groupBy($"user_id",$"gender_id").count.withColumnRenamed("count","top_gender_id_songs")
+val genderSongDF = songDF.groupBy($"userId",$"genderId").count.withColumnRenamed("count","topGenderIdSongs")
 
-val genderWindow = Window.partitionBy("user_id").orderBy($"top_gender_id_songs".desc)
+val genderWindow = Window.partitionBy("userId").orderBy($"topGenderIdSongs".desc)
 
 val windowGenderSongDF = genderSongDF.withColumn("rank", row_number().over(genderWindow)).where($"rank" === 1).drop($"rank"
-).withColumnRenamed("gender_id","top_gender_id")
+).withColumnRenamed("genderId","topGenderId")
 
-val resultDF = windowGenderSongDF.join(distSongDF,"user_id")
+val resultDF = windowGenderSongDF.join(distSongDF,"userId")
 
 // resultDF format example
 //              
-// user_id;top_gender_id;top_gender_id_songs;dist_song_ids
+// userId;topGenderId;topGenderIdSongs;distSongIds
 // 27103;23;1;2
 // 4052;27;1;2
 // ...
