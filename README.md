@@ -14,21 +14,22 @@ The code has been tested using:
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
-The virtual environment (<env_name>=**datascience35**) employed for [Data Science] applications is generated from **datascience35.yaml** file located in the repository.
+The virtual environment (<env_name>=**datascience36**) employed for [Data Science] applications is generated from **datascience36.yaml** file located in the repository.
 
 The main components of this virtual environment are listed below:
 
-* [Python] (3.5.6): an interpreted high-level programming language for general-purpose programming.
+* [Python] (3.6.7): an interpreted high-level programming language for general-purpose programming.
 * [Keras] (2.2.4): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
-* [Tensorflow] (1.11.0): an open source software [Deep Learning] library for high performance numerical computation using data flow graphs.
+* [Tensorflow] (1.12.0): an open source software [Deep Learning] library for high performance numerical computation using data flow graphs.
 * [Matplotlib] (2.2.3): a plotting library for [Python] and its numerical mathematics extension [NumPy].
 * [NumPy] (1.14.6): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
 * [Pandas] (0.23.4): an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
 * [scikit-learn] (0.20.0): a machine learning library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
-* [XGBoost] (0.8.0): an optimized distributed [Gradient Boosting] library designed to be highly efficient, flexible and portable.
+* [TPOT] (0.9.5): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
+* [XGBoost] (0.81): an optimized distributed [Gradient Boosting] library designed to be highly efficient, flexible and portable.
 * [Folium] (0.6.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
 * [Seaborn] (0.9.0): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
-* [imbalanced-learn] (0.4.1): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
+* [imbalanced-learn] (0.4.2): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
 * [joblib] (0.12.5): a set of tools to provide lightweight pipelining in [Python].
 * [findspark] (1.3.0): a package to make [Spark] Context available in [Jupyter Notebook].
 
@@ -38,8 +39,8 @@ Commands to access [Spark] master node and activate virtual environment locally 
 
 ```bash
 ~$ docker exec -it bigdata_docker_master_1 /bin/bash
-~/usr/spark-2.3.1/$ source activate datascience35
-(datascience35)~/usr/spark-2.3.1/$
+~/usr/spark-2.3.1/$ source activate datascience36
+(datascience36)~/usr/spark-2.3.1/$
 ```
 
 ## REPOSITORY CONTENT
@@ -73,7 +74,7 @@ The **work_dir** folder has the following structure:
 
 ```bash
 work_dir
-├── datascience35.yaml
+├── datascience36.yaml
 ├── notebooks
 │   └── Example.ipynb
 ├── python_apps
@@ -82,7 +83,7 @@ work_dir
     └── example
 ```
 
-* **datascience35.yaml**: file which defines the dependencies for the virtual environment employed by [Python] [Data Science] applications and [Jupyter Notebooks].
+* **datascience36.yaml**: file which defines the dependencies for the virtual environment employed by [Python] [Data Science] applications and [Jupyter Notebooks].
 * **notebooks**: [Jupyter Notebooks] for data analysis, elaboration and training of prediction models and testing.
 * **scala_apps**: used to contain [Spark] applications written in [Scala]. There is one example application compiled using [Maven].
 * **python_apps**: folder to store [Python] applications. There is one example application.
@@ -167,7 +168,7 @@ When using larger files it is recommended to tune additional parameters to provi
 
 ### PYTHON DATA SCIENCE APPLICATIONS
 
-The [Python] [Data Science] applications located in **work_dir/python_apps** folder would require the activation of **datascience35** virtual environment to employ [machine learning] libraries to create and use prediction models.
+The [Python] [Data Science] applications located in **work_dir/python_apps** folder would require the activation of **datascience36** virtual environment to employ [machine learning] libraries to create and use prediction models.
 
 The way to run the [Python] example application is simple. Just go to **work_dir/python_apps/example** folder and execute it:
 
@@ -181,9 +182,9 @@ Command to access [Spark] master node:
 Command to activate virtual environment and run [Python] example application in master node:
 
 ```bash
-~/usr/spark-2.3.1/$ source activate datascience35
-(datascience35)~/usr/spark-2.3.1/$ cd work_dir/python_apps/example
-(datascience35)~/usr/spark-2.3.1/work_dir/python_apps/example$ python main.py 10000
+~/usr/spark-2.3.1/$ source activate datascience36
+(datascience36)~/usr/spark-2.3.1/$ cd work_dir/python_apps/example
+(datascience36)~/usr/spark-2.3.1/work_dir/python_apps/example$ python main.py 10000
 ```
 
 ### JUPYTER NOTEBOOKS
@@ -203,7 +204,7 @@ Launch [Jupyter Notebook] service in master node.
 
 ```bash
 ~/usr/spark-2.3.1$ jupyter notebook \
---notebook-dir=/usr/spark-2.3.1/solution/notebooks \
+--notebook-dir=/usr/spark-2.3.1/work_dir/notebooks \
 --ip='0.0.0.0' \
 --port=8888 \
 --no-browser \
@@ -225,6 +226,45 @@ http://localhost:8888/?token=9ddee08010d4309a30a5f74a13f40d7b736aafe712e4476
 ```
 
 To shutdown the [Jupyter Notebook] service in the master node simply press 'Control+C' and then confirm with 'y'.
+
+### PYTHON VIRTUAL ENVIRONMENTS BASICS
+
+Commands to deal with [Conda] virtual environments used in shell and [Jupyter Notebooks].
+
+How to create [Conda] virtual environments from scratch:
+
+```bash
+~$ conda create -n environment-name python=3.7 ipykernel
+```
+
+How to activate [Conda] virtual environment:
+
+```bash
+~$ source activate environment-name
+(environment-name)~$
+```
+
+How to export [Conda] virtual environments to files:
+
+```bash
+~$ conda env export > environment-name.yml
+```
+
+```bash
+~$ pip freeze > requirements.txt
+```
+
+How to create [Conda] virtual environments from file:
+
+```bash
+~$ conda env create -f environment-name.yaml
+```
+
+How to delete [Conda] virtual environments:
+
+```bash
+~$ conda env remove --name environment-name
+```
 
 [Data Science]: https://en.wikipedia.org/wiki/Data_science
 [Big Data]: https://en.wikipedia.org/wiki/Big_data
@@ -258,6 +298,7 @@ To shutdown the [Jupyter Notebook] service in the master node simply press 'Cont
 [NumPy]: http://www.numpy.org/
 [Pandas]: https://pandas.pydata.org/
 [scikit-learn]: http://scikit-learn.org/stable/
+[TPOT]: https://github.com/EpistasisLab/tpot
 [XGBoost]: https://github.com/dmlc/xgboost
 [Folium]: https://github.com/python-visualization/folium
 [Leaflet.js]: https://leafletjs.com/

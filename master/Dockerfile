@@ -49,7 +49,7 @@ FROM gettyimages/spark:2.3.1-hadoop-3.0
 
  # Virtual environment
 
- RUN conda env create -f datascience35.yaml
+ RUN conda env create -f datascience36.yaml
 
  # Compiling Scala example with MAVEN
 
