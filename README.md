@@ -1,6 +1,18 @@
-# SPARK DOCKER CLUSTER FOR BIG DATA & DATA SCIENCE
+# SPARK DOCKER CLUSTER FOR BIG DATA & DATA SCIENCE <!-- omit in toc -->
 
 This repository stores all the required components to build a containerized cluster for [Big Data] and [Data Science] applications. It allows scalable production services using technologies such as [Machine Learning] [Python] libraries, [Apache Spark] analytics engine, [Scala] language, [HDFS] and [Docker] containers among others.
+
+* [DEPENDENCIES](#dependencies)
+  * [PYTHON VIRTUAL ENVIRONMENT](#python-virtual-environment)
+* [REPOSITORY CONTENT](#repository-content)
+  * [WORK DIRECTORY CONTENT](#work-directory-content)
+* [ARCHITECTURE](#architecture)
+  * [CONTAINERIZED BIG DATA CLUSTER](#containerized-big-data-cluster)
+  * [HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE](#how-to-run-containerized-cluster-with-docker-compose)
+  * [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
+  * [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
+  * [JUPYTER NOTEBOOKS](#jupyter-notebooks)
+  * [PYTHON VIRTUAL ENVIRONMENTS BASICS](#python-virtual-environments-basics)
 
 ## DEPENDENCIES
 
@@ -61,8 +73,8 @@ bigdata_docker
 └── README.md
 ```
 
-* **conf**: stores [Spark] configuration files for master and worker nodes. These folders are mapped as volumes in the [docker-compose] file and they can be accessed from containers through **/conf** path.
-* **data**: folder to contain raw, processed and test data. It is mapped as volume in [docker-compose] and it can be accessed from containers through **/tmp/data** path.
+* **conf**: stores [Spark] configuration files for master and worker nodes. These folders are mapped as volumes in the [docker-compose] file and they can be accessed from containers through **conf/** path.
+* **data**: folder to contain raw, processed and test data. It is mapped as volume in [docker-compose] and it can be accessed from containers through **tmp/data/** path.
 * **docker-compose.yml**: creates the [Spark] cluster based on [Docker] in which the applications shall run.
 * **master**: stores all configuration and working files for the [Spark] master node of the cluster created with [docker-compose].
   * **Dockerfile**: defines all required tools, virtual environment and work files to be installed in the [Spark] master node.
@@ -144,7 +156,7 @@ To shutdown the cluster simply press 'Control+C' and wait patiently to return to
 
 It is necessary to filter and prepare the data from [RDD]s to extract the relevant information that will be used by [Python] [Data Science] applications. The approach to accomplish this task can be the employ of [Spark] applications programmed in [Scala].
 
-A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
+A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example/** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
 
 ```bash
 ~/usr/spark-2.3.1/work_dir/scala_apps/example$ mvn package
@@ -168,9 +180,9 @@ When using larger files it is recommended to tune additional parameters to provi
 
 ### PYTHON DATA SCIENCE APPLICATIONS
 
-The [Python] [Data Science] applications located in **work_dir/python_apps** folder would require the activation of **datascience36** virtual environment to employ [machine learning] libraries to create and use prediction models.
+The [Python] [Data Science] applications located in **work_dir/python_apps/** folder would require the activation of **datascience36** virtual environment to employ [machine learning] libraries to create and use prediction models.
 
-The way to run the [Python] example application is simple. Just go to **work_dir/python_apps/example** folder and execute it:
+The way to run the [Python] example application is simple. Just go to **work_dir/python_apps/example/** folder and execute it:
 
 Command to access [Spark] master node:
 
@@ -189,7 +201,7 @@ Command to activate virtual environment and run [Python] example application in 
 
 ### JUPYTER NOTEBOOKS
 
-A good way to analyze data, build [machine learning] models and test them is through [Jupyter Notebooks]. An example of [Jupyter Notebook] is stored in the **work_dir/notebooks** folder.
+A good way to analyze data, build [machine learning] models and test them is through [Jupyter Notebooks]. An example of [Jupyter Notebook] is stored in the **work_dir/notebooks/** folder.
 
 All the required packages to run [Jupyter Notebooks] remotely in the [Spark] master node are installed so it is possible to run them through web interface. To achieve this it is necessary to use the commands shown below:
 
