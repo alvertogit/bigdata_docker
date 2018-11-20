@@ -20,8 +20,8 @@ The code has been tested using:
 
 * [Apache Spark] (2.3.1): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 * [Hadoop] (3.0.0): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
-* [Docker] (18.06.1-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
-* [docker-compose] (1.22): a tool for defining and running multi-container [Docker] applications.
+* [Docker] (18.09.0-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+* [docker-compose] (1.23.1): a tool for defining and running multi-container [Docker] applications.
 * [Miniconda] ([Conda] (4.5.11), [Python] 3.7): a small, bootstrap version of [Data Science] Platform [Anaconda] that includes only virtual environment [Conda], [Python], the packages they depend on and a small number of other useful packages.
 
 ### PYTHON VIRTUAL ENVIRONMENT
@@ -41,8 +41,8 @@ The main components of this virtual environment are listed below:
 * [XGBoost] (0.81): an optimized distributed [Gradient Boosting] library designed to be highly efficient, flexible and portable.
 * [Folium] (0.6.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
 * [Seaborn] (0.9.0): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
-* [imbalanced-learn] (0.4.2): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
-* [joblib] (0.12.5): a set of tools to provide lightweight pipelining in [Python].
+* [imbalanced-learn] (0.4.3): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
+* [joblib] (0.13.0): a set of tools to provide lightweight pipelining in [Python].
 * [findspark] (1.3.0): a package to make [Spark] Context available in [Jupyter Notebook].
 
 It is available in the [Spark] master node created with [docker-compose] through [Conda].
@@ -259,7 +259,7 @@ How to activate [Conda] virtual environment:
 How to export [Conda] virtual environments to files:
 
 ```bash
-~$ conda env export > environment-name.yml
+~$ conda env export > environment-name.yaml
 ```
 
 ```bash
