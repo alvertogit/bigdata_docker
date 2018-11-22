@@ -79,7 +79,7 @@ dependencies:
     - mistune==0.8.4
     - nbconvert==5.4.0
     - nbformat==4.4.0
-    - notebook==5.7.0
+    - notebook==5.7.2
     - numpy==1.14.6
     - packaging==18.0
     - pandas==0.23.4
@@ -115,5 +115,5 @@ dependencies:
     - widgetsnbextension==3.4.2
     - xarray==0.10.7
     - xgboost==0.81
-prefix: /opt/conda/envs/datascience36
+prefix: /home/alberto/anaconda3/envs/datascience36
 
