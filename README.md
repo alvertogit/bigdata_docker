@@ -36,10 +36,10 @@ The main components of this virtual environment are listed below:
 * [Matplotlib] (2.2.3): a plotting library for [Python] and its numerical mathematics extension [NumPy].
 * [NumPy] (1.14.6): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
 * [Pandas] (0.23.4): an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
-* [scikit-learn] (0.20.0): a machine learning library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
+* [scikit-learn] (0.20.1): a machine learning library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
 * [TPOT] (0.9.5): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (0.81): an optimized distributed [Gradient Boosting] library designed to be highly efficient, flexible and portable.
-* [Folium] (0.6.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
+* [Folium] (0.7.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
 * [Seaborn] (0.9.0): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
 * [imbalanced-learn] (0.4.3): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
 * [joblib] (0.13.0): a set of tools to provide lightweight pipelining in [Python].

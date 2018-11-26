@@ -16,7 +16,7 @@ FROM gettyimages/spark:2.3.1-hadoop-3.0
     /opt/conda/bin/conda clean -tipsy && \
     ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate base" >> ~/.bashrc
+    echo "conda activate datascience36" >> ~/.bashrc
 
  ENV TINI_VERSION v0.16.1
  ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
