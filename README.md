@@ -18,8 +18,8 @@ This repository stores all the required components to build a containerized clus
 
 The code has been tested using:
 
-* [Apache Spark] (2.3.1): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
-* [Hadoop] (3.0.0): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
+* [Apache Spark] (2.4.0): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
+* [Hadoop] (3.1.1): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
 * [Docker] (18.09.0-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
 * [docker-compose] (1.23.1): a tool for defining and running multi-container [Docker] applications.
 * [Miniconda] ([Conda] (4.5.11), [Python] 3.7): a small, bootstrap version of [Data Science] Platform [Anaconda] that includes only virtual environment [Conda], [Python], the packages they depend on and a small number of other useful packages.
@@ -51,8 +51,8 @@ Commands to access [Spark] master node and activate virtual environment locally 
 
 ```bash
 ~$ docker exec -it bigdata_docker_master_1 /bin/bash
-~/usr/spark-2.3.1/$ source activate datascience36
-(datascience36)~/usr/spark-2.3.1/$
+~/usr/spark-2.4.0/$ source activate datascience36
+(datascience36)~/usr/spark-2.4.0/$
 ```
 
 ## REPOSITORY CONTENT
@@ -76,8 +76,8 @@ bigdata_docker
 * **conf**: stores [Spark] configuration files for master and worker nodes. These folders are mapped as volumes in the [docker-compose] file and they can be accessed from containers through **conf/** path.
 * **data**: folder to contain raw, processed and test data. It is mapped as volume in [docker-compose] and it can be accessed from containers through **tmp/data/** path.
 * **docker-compose.yml**: creates the [Spark] cluster based on [Docker] in which the applications shall run.
-* **master**: stores all configuration and working files for the [Spark] master node of the cluster created with [docker-compose].
-  * **Dockerfile**: defines all required tools, virtual environment and work files to be installed in the [Spark] master node.
+* **master**: stores all configuration and working files for the [Spark] master and worker nodes of the cluster created with [docker-compose].
+  * **Dockerfile**: defines all required tools, virtual environment and work files to be installed in the [Spark] master and worker nodes.
   * **work_dir**: stores files employed for [Big Data] and [Data Science] applications.
 
 ### WORK DIRECTORY CONTENT
@@ -116,7 +116,7 @@ The system has to be a scalable solution. Thus the applications shall be deploye
 
 The reason for this choice is because [Docker] enables the utilization of container clustering systems to set up and scale the processing and predictive applications in production. It makes easy to add new containers to handle additional load.
 
-The containers shall run [Spark] as data engine and [HDFS] for storage in master and worker nodes. The base [Docker] image with [Spark] and [Hadoop] is from [gettyimages] available in [Docker Hub]. The [Spark] master node has also [Maven], [Miniconda] and the [Python] virtual environment installed using a personalized [Dockerfile].
+The containers shall run [Spark] as data engine and [HDFS] for storage in master and worker nodes. The [Dockerfile] with [Spark] and [Hadoop] is inspired from [gettyimages/spark] [Docker] image available in [Docker Hub]. The [Spark] master node has also [Maven], [Miniconda] and the [Python] virtual environment installed.
 
 The number of worker nodes can be increased modifying the [docker-compose] file. By default it creates one master and one worker node.
 
@@ -159,7 +159,7 @@ It is necessary to filter and prepare the data from [RDD]s to extract the releva
 A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example/** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
 
 ```bash
-~/usr/spark-2.3.1/work_dir/scala_apps/example$ mvn package
+~/usr/spark-2.4.0/work_dir/scala_apps/example$ mvn package
 ```
 
 The application requires the parameters *min-range-Id*, *max-range-Id*, *path-input-log*, *path-output-log*.
@@ -167,13 +167,25 @@ The application requires the parameters *min-range-Id*, *max-range-Id*, *path-in
 Command to run the **Example** application locally in the [Spark] master node with test logs:
 
 ```bash
-~/usr/spark-2.3.1/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-2.4.0/work_dir/scala_apps/example$ spark-submit \
 --master local[2] \
 --class stubs.Example \
 target/example-1.0.jar \
 1 49999 \
 /tmp/data/test_log.csv \
-/tmp/data/result_log
+/tmp/data/result_local_log
+```
+
+Command to run the **Example** application in the [Spark] worker node with test logs:
+
+```bash
+~/usr/spark-2.4.0/work_dir/scala_apps/example$ spark-submit \
+--master spark://master:7077 \
+--class stubs.Example \
+target/example-1.0.jar \
+1 49999 \
+/tmp/data/test_log.csv \
+/tmp/data/result_worker_log
 ```
 
 When using larger files it is recommended to tune additional parameters to provide additional resources. e.g. "--driver-memory 10g".
@@ -188,15 +200,15 @@ Command to access [Spark] master node:
 
 ```bash
 ~$ docker exec -it bigdata_docker_master_1 /bin/bash
-~/usr/spark-2.3.1/$
+~/usr/spark-2.4.0/$
 ```
 
 Command to activate virtual environment and run [Python] example application in master node:
 
 ```bash
-~/usr/spark-2.3.1/$ source activate datascience36
-(datascience36)~/usr/spark-2.3.1/$ cd work_dir/python_apps/example
-(datascience36)~/usr/spark-2.3.1/work_dir/python_apps/example$ python main.py 10000
+~/usr/spark-2.4.0/$ source activate datascience36
+(datascience36)~/usr/spark-2.4.0/$ cd work_dir/python_apps/example
+(datascience36)~/usr/spark-2.4.0/work_dir/python_apps/example$ python main.py 10000
 ```
 
 ### JUPYTER NOTEBOOKS
@@ -209,14 +221,14 @@ Command to access master node:
 
 ```bash
 ~$ docker exec -it bigdata_docker_master_1 /bin/bash
-~/usr/spark-2.3.1$
+~/usr/spark-2.4.0$
 ```
 
 Launch [Jupyter Notebook] service in master node.
 
 ```bash
-~/usr/spark-2.3.1$ jupyter notebook \
---notebook-dir=/usr/spark-2.3.1/work_dir/notebooks \
+~/usr/spark-2.4.0$ jupyter notebook \
+--notebook-dir=/usr/spark-2.4.0/work_dir/notebooks \
 --ip='0.0.0.0' \
 --port=8888 \
 --no-browser \
@@ -322,7 +334,7 @@ How to delete [Conda] virtual environments:
 [Jupyter Notebook]: http://jupyter.org/
 [Jupyter Notebooks]: http://jupyter.org/
 [Maven]: https://maven.apache.org/
-[gettyimages]: https://hub.docker.com/r/gettyimages/spark/
+[gettyimages/spark]: https://hub.docker.com/r/gettyimages/spark/
 [Docker Hub]: https://hub.docker.com/
 [Cloud Computing]: https://en.wikipedia.org/wiki/Cloud_computing
 [AWS EMR]: https://aws.amazon.com/emr/?nc1=h_ls
