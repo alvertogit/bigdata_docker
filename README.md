@@ -3,16 +3,16 @@
 This repository stores all the required components to build a containerized cluster for [Big Data] and [Data Science] applications. It allows scalable production services using technologies such as [Machine Learning] [Python] libraries, [Apache Spark] analytics engine, [Scala] language, [HDFS] and [Docker] containers among others.
 
 * [DEPENDENCIES](#dependencies)
-  * [PYTHON VIRTUAL ENVIRONMENT](#python-virtual-environment)
+    * [PYTHON VIRTUAL ENVIRONMENT](#python-virtual-environment)
 * [REPOSITORY CONTENT](#repository-content)
-  * [WORK DIRECTORY CONTENT](#work-directory-content)
+    * [WORK DIRECTORY CONTENT](#work-directory-content)
 * [ARCHITECTURE](#architecture)
-  * [CONTAINERIZED BIG DATA CLUSTER](#containerized-big-data-cluster)
-  * [HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE](#how-to-run-containerized-cluster-with-docker-compose)
-  * [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
-  * [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
-  * [JUPYTER NOTEBOOKS](#jupyter-notebooks)
-  * [PYTHON VIRTUAL ENVIRONMENTS BASICS](#python-virtual-environments-basics)
+    * [CONTAINERIZED BIG DATA CLUSTER](#containerized-big-data-cluster)
+    * [HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE](#how-to-run-containerized-cluster-with-docker-compose)
+    * [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
+    * [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
+    * [JUPYTER NOTEBOOKS](#jupyter-notebooks)
+    * [PYTHON VIRTUAL ENVIRONMENTS BASICS](#python-virtual-environments-basics)
 
 ## DEPENDENCIES
 
@@ -40,6 +40,7 @@ The main components of this virtual environment are listed below:
 * [TPOT] (0.9.5): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (0.81): an optimized distributed [Gradient Boosting] library designed to be highly efficient, flexible and portable.
 * [Folium] (0.7.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
+* [ipyleaflet] (0.9.1): a [Jupyter] / [Leaflet] bridge enabling interactive maps in the [Jupyter notebook].
 * [Seaborn] (0.9.0): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
 * [imbalanced-learn] (0.4.3): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
 * [joblib] (0.13.0): a set of tools to provide lightweight pipelining in [Python].
@@ -162,7 +163,7 @@ A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/exam
 ~/usr/spark-2.4.0/work_dir/scala_apps/example$ mvn package
 ```
 
-The application requires the parameters *min-range-Id*, *max-range-Id*, *path-input-log*, *path-output-log*.
+The application requires the parameters *min-range-Id*, *max-range-Id*, *path-input-log1*, *path-input-log2*, *path-output-log*.
 
 Command to run the **Example** application locally in the [Spark] master node with test logs:
 
@@ -172,7 +173,8 @@ Command to run the **Example** application locally in the [Spark] master node wi
 --class stubs.Example \
 target/example-1.0.jar \
 1 49999 \
-/tmp/data/test_log.csv \
+/tmp/data/test_log1.csv \
+/tmp/data/test_log2.csv \
 /tmp/data/result_local_log
 ```
 
@@ -184,7 +186,8 @@ Command to run the **Example** application in the [Spark] worker node with test 
 --class stubs.Example \
 target/example-1.0.jar \
 1 49999 \
-/tmp/data/test_log.csv \
+/tmp/data/test_log1.csv \
+/tmp/data/test_log2.csv \
 /tmp/data/result_worker_log
 ```
 
@@ -331,6 +334,7 @@ How to delete [Conda] virtual environments:
 [SMOTE (Synthetic Minority Over-sampling Technique)]: https://jair.org/index.php/jair/article/view/10302
 [joblib]: https://pypi.org/project/joblib/
 [findspark]: https://github.com/minrk/findspark
+[Jupyter]: http://jupyter.org/
 [Jupyter Notebook]: http://jupyter.org/
 [Jupyter Notebooks]: http://jupyter.org/
 [Maven]: https://maven.apache.org/
