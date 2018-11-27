@@ -3,16 +3,16 @@
 This repository stores all the required components to build a containerized cluster for [Big Data] and [Data Science] applications. It allows scalable production services using technologies such as [Machine Learning] [Python] libraries, [Apache Spark] analytics engine, [Scala] language, [HDFS] and [Docker] containers among others.
 
 * [DEPENDENCIES](#dependencies)
-    * [PYTHON VIRTUAL ENVIRONMENT](#python-virtual-environment)
+  * [PYTHON VIRTUAL ENVIRONMENT](#python-virtual-environment)
 * [REPOSITORY CONTENT](#repository-content)
-    * [WORK DIRECTORY CONTENT](#work-directory-content)
+  * [WORK DIRECTORY CONTENT](#work-directory-content)
 * [ARCHITECTURE](#architecture)
-    * [CONTAINERIZED BIG DATA CLUSTER](#containerized-big-data-cluster)
-    * [HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE](#how-to-run-containerized-cluster-with-docker-compose)
-    * [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
-    * [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
-    * [JUPYTER NOTEBOOKS](#jupyter-notebooks)
-    * [PYTHON VIRTUAL ENVIRONMENTS BASICS](#python-virtual-environments-basics)
+  * [CONTAINERIZED BIG DATA CLUSTER](#containerized-big-data-cluster)
+  * [HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE](#how-to-run-containerized-cluster-with-docker-compose)
+  * [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
+  * [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
+  * [JUPYTER NOTEBOOKS](#jupyter-notebooks)
+  * [PYTHON VIRTUAL ENVIRONMENTS BASICS](#python-virtual-environments-basics)
 
 ## DEPENDENCIES
 
@@ -40,7 +40,7 @@ The main components of this virtual environment are listed below:
 * [TPOT] (0.9.5): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (0.81): an optimized distributed [Gradient Boosting] library designed to be highly efficient, flexible and portable.
 * [Folium] (0.7.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
-* [ipyleaflet] (0.9.1): a [Jupyter] / [Leaflet] bridge enabling interactive maps in the [Jupyter notebook].
+* [ipyleaflet] (0.9.1): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in the [Jupyter notebook].
 * [Seaborn] (0.9.0): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
 * [imbalanced-learn] (0.4.3): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
 * [joblib] (0.13.0): a set of tools to provide lightweight pipelining in [Python].
@@ -329,6 +329,7 @@ How to delete [Conda] virtual environments:
 [XGBoost]: https://github.com/dmlc/xgboost
 [Folium]: https://github.com/python-visualization/folium
 [Leaflet.js]: https://leafletjs.com/
+[ipyleaflet]: https://github.com/jupyter-widgets/ipyleaflet
 [Seaborn]: http://seaborn.pydata.org/
 [imbalanced-learn]: https://github.com/scikit-learn-contrib/imbalanced-learn
 [SMOTE (Synthetic Minority Over-sampling Technique)]: https://jair.org/index.php/jair/article/view/10302
