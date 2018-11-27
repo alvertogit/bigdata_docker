@@ -66,7 +66,8 @@ bigdata_docker
 │   ├── master
 │   └── worker
 ├── data
-│   └── test_log.csv
+│   ├── test_log1.csv
+│   └── test_log2.csv
 ├── master
 │   ├── Dockerfile
 │   └── work_dir
