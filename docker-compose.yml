@@ -24,6 +24,8 @@ services:
     volumes:
       - ./conf/master:/conf
       - ./data:/tmp/data
+    networks:
+      - spark_network
 
   worker:
     build:
@@ -38,8 +40,6 @@ services:
       SPARK_WORKER_PORT: 8881
       SPARK_WORKER_WEBUI_PORT: 8081
       SPARK_PUBLIC_DNS: localhost
-    links:
-      - master
     expose:
       - 7012
       - 8881
@@ -48,3 +48,9 @@ services:
     volumes:
       - ./conf/worker:/conf
       - ./data:/tmp/data
+    networks:
+      - spark_network
+
+networks:
+  spark_network:
+    driver: bridge
