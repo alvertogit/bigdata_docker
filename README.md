@@ -33,10 +33,11 @@ The main components of this virtual environment are listed below:
 * [Python] (3.6.7): an interpreted high-level programming language for general-purpose programming.
 * [Keras] (2.2.4): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
 * [Tensorflow] (1.12.0): an open source software [Deep Learning] library for high performance numerical computation using data flow graphs.
-* [Matplotlib] (2.2.3): a plotting library for [Python] and its numerical mathematics extension [NumPy].
-* [NumPy] (1.14.6): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+* [Matplotlib] (3.0.2): a plotting library for [Python] and its numerical mathematics extension [NumPy].
+* [NumPy] (1.15.4): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
 * [Pandas] (0.23.4): an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
 * [scikit-learn] (0.20.1): a machine learning library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
+* [scikit-image] (0.14.1): a collection of algorithms for image processing with [Python].
 * [TPOT] (0.9.5): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (0.81): an optimized distributed [Gradient Boosting] library designed to be highly efficient, flexible and portable.
 * [Folium] (0.7.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
@@ -326,6 +327,7 @@ How to delete [Conda] virtual environments:
 [NumPy]: http://www.numpy.org/
 [Pandas]: https://pandas.pydata.org/
 [scikit-learn]: http://scikit-learn.org/stable/
+[scikit-image]: https://scikit-image.org/
 [TPOT]: https://github.com/EpistasisLab/tpot
 [XGBoost]: https://github.com/dmlc/xgboost
 [Folium]: https://github.com/python-visualization/folium
