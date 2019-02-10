@@ -2,27 +2,27 @@
 
 This repository stores all the required components to build a containerized cluster for [Big Data] and [Data Science] applications. It allows scalable production services using technologies such as [Machine Learning] [Python] libraries, [Apache Spark] analytics engine, [Scala] language, [HDFS] and [Docker] containers among others.
 
-* [DEPENDENCIES](#dependencies)
-  * [PYTHON VIRTUAL ENVIRONMENT](#python-virtual-environment)
-* [REPOSITORY CONTENT](#repository-content)
-  * [WORK DIRECTORY CONTENT](#work-directory-content)
-* [ARCHITECTURE](#architecture)
-  * [CONTAINERIZED BIG DATA CLUSTER](#containerized-big-data-cluster)
-  * [HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE](#how-to-run-containerized-cluster-with-docker-compose)
-  * [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
-  * [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
-  * [JUPYTER NOTEBOOKS](#jupyter-notebooks)
-  * [PYTHON VIRTUAL ENVIRONMENTS BASICS](#python-virtual-environments-basics)
+- [DEPENDENCIES](#dependencies)
+  - [PYTHON VIRTUAL ENVIRONMENT](#python-virtual-environment)
+- [REPOSITORY CONTENT](#repository-content)
+  - [WORK DIRECTORY CONTENT](#work-directory-content)
+- [ARCHITECTURE](#architecture)
+  - [CONTAINERIZED BIG DATA CLUSTER](#containerized-big-data-cluster)
+  - [HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE](#how-to-run-containerized-cluster-with-docker-compose)
+  - [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
+  - [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
+  - [JUPYTER NOTEBOOKS](#jupyter-notebooks)
+  - [PYTHON VIRTUAL ENVIRONMENTS BASICS](#python-virtual-environments-basics)
 
 ## DEPENDENCIES
 
 The code has been tested using:
 
 * [Apache Spark] (2.4.0): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
-* [Hadoop] (3.1.1): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
-* [Docker] (18.09.0-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+* [Hadoop] (3.1.2): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
+* [Docker] (18.09.1-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
 * [docker-compose] (1.23.2): a tool for defining and running multi-container [Docker] applications.
-* [Miniconda] ([Conda] (4.5.12)): a small, bootstrap version of [Data Science] Platform [Anaconda] that includes only virtual environment [Conda], [Python], the packages they depend on and a small number of other useful packages.
+* [Miniconda] ([Conda] (4.6.2)): a small, bootstrap version of [Data Science] Platform [Anaconda] that includes only virtual environment [Conda], [Python], the packages they depend on and a small number of other useful packages.
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
@@ -34,10 +34,10 @@ The main components of this virtual environment are listed below:
 * [Keras] (2.2.4): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
 * [Tensorflow] (1.12.0): an open source software [Deep Learning] library for high performance numerical computation using data flow graphs.
 * [Matplotlib] (3.0.2): a plotting library for [Python] and its numerical mathematics extension [NumPy].
-* [NumPy] (1.16.0): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
-* [Pandas] (0.23.4): an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
+* [NumPy] (1.16.1): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+* [Pandas] (0.24.1): an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
 * [scikit-learn] (0.20.2): a machine learning library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
-* [scikit-image] (0.14.1): a collection of algorithms for image processing with [Python].
+* [scikit-image] (0.14.2): a collection of algorithms for image processing with [Python].
 * [TPOT] (0.9.5): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (0.81): an optimized distributed [Gradient Boosting] library designed to be highly efficient, flexible and portable.
 * [Folium] (0.7.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
@@ -53,7 +53,7 @@ Commands to access [Spark] master node and activate virtual environment locally 
 
 ```bash
 ~$ docker exec -it bigdata_docker_master_1 /bin/bash
-~/usr/spark-2.4.0/$ source activate datascience36
+~/usr/spark-2.4.0/$ conda activate datascience36
 (datascience36)~/usr/spark-2.4.0/$
 ```
 
@@ -135,13 +135,13 @@ The steps and commands to run the [Spark] cluster with [docker-compose] are desc
 Before executing [docker-compose] is strongly recommended to close other applications to free up resources and ports to avoid potential issues. Then [docker-compose] can be execute to build services:
 
 ```bash
-~/bigdata_docker/$ sudo docker-compose build
+~/bigdata_docker/$ docker-compose build
 ```
 
 Next step consists in executing [docker-compose] up command:
 
 ```bash
-~/bigdata_docker/$ sudo docker-compose up
+~/bigdata_docker/$ docker-compose up
 ```
 
 It is likely that for the first time it could spend some time to download [Docker] images and additional packages. If everything goes fine at the end the cluster should be ready appearing something similar to:
@@ -211,7 +211,7 @@ Command to access [Spark] master node:
 Command to activate virtual environment and run [Python] example application in master node:
 
 ```bash
-~/usr/spark-2.4.0/$ source activate datascience36
+~/usr/spark-2.4.0/$ conda activate datascience36
 (datascience36)~/usr/spark-2.4.0/$ cd work_dir/python_apps/example
 (datascience36)~/usr/spark-2.4.0/work_dir/python_apps/example$ python main.py 10000
 ```
@@ -269,7 +269,7 @@ How to create [Conda] virtual environments from scratch:
 How to activate [Conda] virtual environment:
 
 ```bash
-~$ source activate environment-name
+~$ conda activate environment-name
 (environment-name)~$
 ```
 

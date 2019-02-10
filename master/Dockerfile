@@ -11,7 +11,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 # HADOOP
 
-ENV HADOOP_VERSION 3.1.1
+ENV HADOOP_VERSION 3.1.2
 ENV HADOOP_HOME /usr/hadoop-$HADOOP_VERSION
 ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 ENV PATH $PATH:$HADOOP_HOME/bin
@@ -51,21 +51,18 @@ RUN apt-get update --fix-missing && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+ENV CONDA_VERSION 4.6.2
 ENV PYTHON_VERSION 3.6.8
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
+    /opt/conda/bin/conda update -y -n base -c defaults conda && \
+    /opt/conda/bin/conda install -y conda=${CONDA_VERSION} && \
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} && \
     /opt/conda/bin/conda clean -tipsy && \
     ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate datascience36" >> ~/.bashrc
-
-ENV TINI_VERSION v0.16.1
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-RUN chmod +x /usr/bin/tini
-
-ENTRYPOINT [ "/usr/bin/tini", "--" ]
 
 # MAVEN 
 
@@ -81,8 +78,8 @@ ENV PATH MAVEN_HOME:$PATH
  
 # Jupyter
 
-RUN conda install jupyter -y --quiet
-RUN conda install nb_conda_kernels
+RUN conda install -y jupyter --quiet
+RUN conda install -y nb_conda_kernels
 
 # Work dir files
 

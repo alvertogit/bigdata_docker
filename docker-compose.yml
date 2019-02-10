@@ -5,6 +5,7 @@ services:
       context: ./master
       target: spark-master
     command: bin/spark-class org.apache.spark.deploy.master.Master -h master
+    init: true
     hostname: master
     environment:
       MASTER: spark://master:7077
@@ -32,6 +33,7 @@ services:
       context: ./master
       target: spark
     command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
+    init: true
     hostname: worker
     environment:
       SPARK_CONF_DIR: /conf
