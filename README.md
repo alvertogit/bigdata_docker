@@ -38,7 +38,7 @@ The main components of this virtual environment are listed below:
 * [Pandas] (0.24.2):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
 * [scikit-learn] (0.20.3): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
 * [scikit-image] (0.15.0): a collection of algorithms for image processing with [Python].
-* [TPOT] (0.10.0): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
+* [TPOT] (0.10.1): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (0.82): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
 * [Folium] (0.8.3): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
 * [ipyleaflet] (0.10.1): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in the [Jupyter notebook].
@@ -53,8 +53,8 @@ Commands to access [Spark] master node and activate virtual environment locally 
 
 ```bash
 ~$ docker exec -it bigdata_docker_master_1 /bin/bash
-~/usr/spark-2.4.0/$ conda activate datascience36
-(datascience36)~/usr/spark-2.4.0/$
+~/usr/spark-2.4.1/$ conda activate datascience36
+(datascience36)~/usr/spark-2.4.1/$
 ```
 
 ## REPOSITORY CONTENT
@@ -162,7 +162,7 @@ It is necessary to filter and prepare the data from [RDD]s to extract the releva
 A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example/** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
 
 ```bash
-~/usr/spark-2.4.0/work_dir/scala_apps/example$ mvn package
+~/usr/spark-2.4.1/work_dir/scala_apps/example$ mvn package
 ```
 
 The application requires the parameters *min-range-Id*, *max-range-Id*, *path-input-log1*, *path-input-log2*, *path-output-log*.
@@ -170,7 +170,7 @@ The application requires the parameters *min-range-Id*, *max-range-Id*, *path-in
 Command to run the **Example** application locally in the [Spark] master node with test logs:
 
 ```bash
-~/usr/spark-2.4.0/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-2.4.1/work_dir/scala_apps/example$ spark-submit \
 --master local[2] \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -183,7 +183,7 @@ target/example-1.0.jar \
 Command to run the **Example** application in the [Spark] worker node with test logs:
 
 ```bash
-~/usr/spark-2.4.0/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-2.4.1/work_dir/scala_apps/example$ spark-submit \
 --master spark://master:7077 \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -205,15 +205,15 @@ Command to access [Spark] master node:
 
 ```bash
 ~$ docker exec -it bigdata_docker_master_1 /bin/bash
-~/usr/spark-2.4.0/$
+~/usr/spark-2.4.1/$
 ```
 
 Command to activate virtual environment and run [Python] example application in master node:
 
 ```bash
-~/usr/spark-2.4.0/$ conda activate datascience36
-(datascience36)~/usr/spark-2.4.0/$ cd work_dir/python_apps/example
-(datascience36)~/usr/spark-2.4.0/work_dir/python_apps/example$ python main.py 10000
+~/usr/spark-2.4.1/$ conda activate datascience36
+(datascience36)~/usr/spark-2.4.1/$ cd work_dir/python_apps/example
+(datascience36)~/usr/spark-2.4.1/work_dir/python_apps/example$ python main.py 10000
 ```
 
 ### JUPYTER NOTEBOOKS
@@ -226,14 +226,14 @@ Command to access master node:
 
 ```bash
 ~$ docker exec -it bigdata_docker_master_1 /bin/bash
-~/usr/spark-2.4.0$
+~/usr/spark-2.4.1$
 ```
 
 Launch [Jupyter Notebook] service in master node.
 
 ```bash
-~/usr/spark-2.4.0$ jupyter notebook \
---notebook-dir=/usr/spark-2.4.0/work_dir/notebooks \
+~/usr/spark-2.4.1$ jupyter notebook \
+--notebook-dir=/usr/spark-2.4.1/work_dir/notebooks \
 --ip='0.0.0.0' \
 --port=8888 \
 --no-browser \

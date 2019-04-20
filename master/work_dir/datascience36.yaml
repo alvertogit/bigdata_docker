@@ -124,11 +124,11 @@ dependencies:
     - terminado==0.8.2
     - testpath==0.4.2
     - toolz==0.9.0
-    - tpot==0.9.6
+    - tpot==0.10.1
     - tqdm==4.31.1
     - traittypes==0.2.1
     - update-checker==0.16
-    - urllib3==1.24.1
+    - urllib3==1.24.2
     - webencodings==0.5.1
     - werkzeug==0.15.2
     - widgetsnbextension==3.4.2
