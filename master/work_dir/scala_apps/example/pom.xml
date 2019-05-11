@@ -8,7 +8,7 @@
 
   <properties>
     <hadoop.version>3.1.2</hadoop.version>
-    <spark.version>2.4.1</spark.version>
+    <spark.version>2.4.3</spark.version>
     <scala.version>2.11.12</scala.version>
     <scala.binary.version>2.11</scala.binary.version>
     <elasticsearch.binary.version>20_2.11</elasticsearch.binary.version>
@@ -80,7 +80,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-	    <version>2.5.1</version>
+	    <version>3.8.0</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
