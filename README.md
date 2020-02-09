@@ -11,8 +11,7 @@ This repository stores all the required components to build a containerized clus
   - [HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE](#how-to-run-containerized-cluster-with-docker-compose)
   - [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
   - [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
-  - [JUPYTER NOTEBOOKS](#jupyter-notebooks)
-  - [PYTHON VIRTUAL ENVIRONMENTS BASICS](#python-virtual-environments-basics)
+  - [JUPYTER LAB & NOTEBOOKS](#jupyter-lab--notebooks)
 
 ## DEPENDENCIES
 
@@ -20,41 +19,39 @@ The code has been tested using:
 
 * [Apache Spark] (2.4.4): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 * [Hadoop] (3.2.1): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
-* [Docker] (19.03.4-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
-* [docker-compose] (1.24.1): a tool for defining and running multi-container [Docker] applications.
-* [Miniconda] ([Conda] (4.7.12)): a small, bootstrap version of [Data Science] Platform [Anaconda] that includes only virtual environment [Conda], [Python], the packages they depend on and a small number of other useful packages.
+* [Docker] (19.03.5-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+* [docker-compose] (1.25.1): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
-The virtual environment (<env_name>=**datascience37**) employed for [Data Science] applications is generated from **datascience37.yaml** file located in the repository.
+The virtual environment employed for [Data Science] applications is generated from **requirements.txt** file located in the repository.
 
 The main components of this virtual environment are listed below:
 
-* [Python] (3.7.5): an interpreted high-level programming language for general-purpose programming.
+* [Python] (3.7): an interpreted high-level programming language for general-purpose programming.
 * [Keras] ([Tensorflow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
-* [Tensorflow] (2.0.0): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
-* [Matplotlib] (3.1.1): a plotting library for [Python] and its numerical mathematics extension [NumPy].
-* [NumPy] (1.17.3): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
-* [Pandas] (0.25.3):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
-* [scikit-learn] (0.21.3): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
+* [Tensorflow] (2.1.0): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
+* [Matplotlib] (3.1.2): a plotting library for [Python] and its numerical mathematics extension [NumPy].
+* [NumPy] (1.18.1): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+* [Pandas] (1.0.0):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
+* [scikit-learn] (0.22.1): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
 * [scikit-image] (0.16.2): a collection of algorithms for image processing with [Python].
-* [TPOT] (0.10.2): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
+* [TPOT] (0.11.1): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (0.90): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
-* [Folium] (0.10.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
-* [ipyleaflet] (0.11.4): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in the [Jupyter notebook].
-* [Seaborn] (0.9.0): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
-* [imbalanced-learn] (0.5.0): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
-* [joblib] (0.14.0): a set of tools to provide lightweight pipelining in [Python].
+* [Folium] (0.10.1): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
+* [ipyleaflet] (0.12.2): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
+* [Seaborn] (0.10.0): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
+* [imbalanced-learn] (0.6.1): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
+* [joblib] (0.14.1): a set of tools to provide lightweight pipelining in [Python].
 * [findspark] (1.3.0): a package to make [Spark] Context available in [Jupyter Notebook].
 
-It is available in the [Spark] master node created with [docker-compose] through [Conda].
+It is available in the [Spark] master node created with [docker-compose].
 
-Commands to access [Spark] master node and activate virtual environment locally in master node:
+Command to access [Spark] master node:
 
 ```bash
-~$ docker exec -it bigdata_docker_master_1 /bin/bash
-~/usr/spark-2.4.4/$ conda activate datascience37
-(datascience37)~/usr/spark-2.4.4/$
+~/bigdata_docker/$ docker-compose exec master bash
+~/usr/spark-2.4.4/$
 ```
 
 ## REPOSITORY CONTENT
@@ -89,7 +86,7 @@ The **work_dir** folder has the following structure:
 
 ```bash
 work_dir
-├── datascience37.yaml
+├── requirements.txt
 ├── notebooks
 │   └── Example.ipynb
 ├── python_apps
@@ -98,7 +95,7 @@ work_dir
     └── example
 ```
 
-* **datascience37.yaml**: file which defines the dependencies for the virtual environment employed by [Python] [Data Science] applications and [Jupyter Notebooks].
+* **requirements.txt**: file which defines the dependencies for the virtual environment employed by [Python] [Data Science] applications and [Jupyter Notebooks].
 * **notebooks**: [Jupyter Notebooks] for data analysis, elaboration and training of prediction models and testing.
 * **scala_apps**: used to contain [Spark] applications written in [Scala]. There is one example application compiled using [Maven].
 * **python_apps**: folder to store [Python] applications. There is one example application.
@@ -119,7 +116,7 @@ The system has to be a scalable solution. Thus the applications shall be deploye
 
 The reason for this choice is because [Docker] enables the utilization of container clustering systems to set up and scale the processing and predictive applications in production. It makes easy to add new containers to handle additional load.
 
-The containers shall run [Spark] as data engine and [HDFS] for storage in master and worker nodes. The [Dockerfile] with [Spark] and [Hadoop] is inspired from [gettyimages/spark] [Docker] image available in [Docker Hub]. The [Spark] master node has also [Maven], [Miniconda] and the [Python] virtual environment installed.
+The containers shall run [Spark] as data engine and [HDFS] for storage in master and worker nodes. The [Dockerfile] with [Spark] and [Hadoop] is inspired from [gettyimages/spark] [Docker] image available in [Docker Hub]. The [Spark] master node has also [Maven] and the [Python] virtual environment installed.
 
 The number of worker nodes can be increased modifying the [docker-compose] file. By default it creates one master and one worker node.
 
@@ -197,42 +194,39 @@ When using larger files it is recommended to tune additional parameters to provi
 
 ### PYTHON DATA SCIENCE APPLICATIONS
 
-The [Python] [Data Science] applications located in **work_dir/python_apps/** folder would require the activation of **datascience37** virtual environment to employ [machine learning] libraries to create and use prediction models.
-
 The way to run the [Python] example application is simple. Just go to **work_dir/python_apps/example/** folder and execute it:
 
 Command to access [Spark] master node:
 
 ```bash
-~$ docker exec -it bigdata_docker_master_1 /bin/bash
+~/bigdata_docker/$ docker-compose exec master bash
 ~/usr/spark-2.4.4/$
 ```
 
-Command to activate virtual environment and run [Python] example application in master node:
+Command to run [Python] example application in master node:
 
 ```bash
-~/usr/spark-2.4.4/$ conda activate datascience37
-(datascience37)~/usr/spark-2.4.4/$ cd work_dir/python_apps/example
-(datascience37)~/usr/spark-2.4.4/work_dir/python_apps/example$ python main.py 10000
+~/usr/spark-2.4.4/$ cd work_dir/python_apps/example
+~/usr/spark-2.4.4/work_dir/python_apps/example$ python main.py 10000
 ```
 
-### JUPYTER NOTEBOOKS
+### JUPYTER LAB & NOTEBOOKS
 
-A good way to analyze data, build [machine learning] models and test them is through [Jupyter Notebooks]. An example of [Jupyter Notebook] is stored in the **work_dir/notebooks/** folder.
+A good way to analyze data, build [machine learning] models and test them is through [Jupyter Lab]. An example of [Jupyter Notebook] is stored in the **work_dir/notebooks/** folder.
 
 All the required packages to run [Jupyter Notebooks] remotely in the [Spark] master node are installed so it is possible to run them through web interface. To achieve this it is necessary to use the commands shown below:
 
 Command to access master node:
 
 ```bash
-~$ docker exec -it bigdata_docker_master_1 /bin/bash
+~/bigdata_docker/$ docker-compose exec master bash
 ~/usr/spark-2.4.4$
 ```
 
-Launch [Jupyter Notebook] service in master node.
+Launch [Jupyter Lab] service in master node.
 
 ```bash
-~/usr/spark-2.4.4$ jupyter notebook \
+~/usr/spark-2.4.4$ jupyter lab \
 --notebook-dir=/usr/spark-2.4.4/work_dir/notebooks \
 --ip='0.0.0.0' \
 --port=8888 \
@@ -240,60 +234,21 @@ Launch [Jupyter Notebook] service in master node.
 --allow-root
 ```
 
-Now [Jupyter Notebooks] stored in the master node can be run remotely. Next step is to open a local web browser and paste the URL printed after executing the launch command to access to the [Jupyter Notebook] interface, checking that the server is running fine. A similar output will be shown:
+Now [Jupyter Notebooks] stored in the master node can be run remotely. Next step is to open a local web browser and paste the URL printed after executing the launch command to access to the [Jupyter Lab] interface, checking that the server is running fine. A similar output will be shown:
 
 ```bash
 Copy/paste this URL into your browser when you connect for the first time,
     to login with a token:
-        http://(master or 127.0.0.1):8888/?token=9ddee08010d4309a30a5f74a13f40d7b736aafe712e4476
+        http://(master or 127.0.0.1):8888/?token=<token>
 ```
 
 Valid URL:
 
 ```bash
-http://localhost:8888/?token=9ddee08010d4309a30a5f74a13f40d7b736aafe712e4476
+http://localhost:8888/?token=<token>
 ```
 
-To shutdown the [Jupyter Notebook] service in the master node simply press 'Control+C' and then confirm with 'y'.
-
-### PYTHON VIRTUAL ENVIRONMENTS BASICS
-
-Commands to deal with [Conda] virtual environments used in shell and [Jupyter Notebooks].
-
-How to create [Conda] virtual environments from scratch:
-
-```bash
-~$ conda create -n environment-name python=3.7 ipykernel
-```
-
-How to activate [Conda] virtual environment:
-
-```bash
-~$ conda activate environment-name
-(environment-name)~$
-```
-
-How to export [Conda] virtual environments to files:
-
-```bash
-~$ conda env export > environment-name.yaml
-```
-
-```bash
-~$ pip freeze > requirements.txt
-```
-
-How to create [Conda] virtual environments from file:
-
-```bash
-~$ conda env create -f environment-name.yaml
-```
-
-How to delete [Conda] virtual environments:
-
-```bash
-~$ conda env remove --name environment-name
-```
+To shutdown the [Jupyter Lab] service in the master node simply press 'Control+C' and then confirm with 'y'.
 
 [Data Science]: https://en.wikipedia.org/wiki/Data_science
 [Big Data]: https://en.wikipedia.org/wiki/Big_data
@@ -317,9 +272,6 @@ How to delete [Conda] virtual environments:
 [HDFS]: https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
 [RDD]: https://spark.apache.org/docs/latest/rdd-programming-guide.html
 [pyspark]: https://pypi.org/project/pyspark/
-[Miniconda]: https://conda.io/docs/index.html
-[Conda]: https://conda.io/docs/index.html
-[Anaconda]: https://www.anaconda.com/
 [Kubernetes]: https://kubernetes.io/
 [Keras]: https://keras.io/
 [Tensorflow]: https://www.tensorflow.org/
@@ -339,6 +291,7 @@ How to delete [Conda] virtual environments:
 [joblib]: https://pypi.org/project/joblib/
 [findspark]: https://github.com/minrk/findspark
 [Jupyter]: http://jupyter.org/
+[Jupyter Lab]: http://jupyter.org/
 [Jupyter Notebook]: http://jupyter.org/
 [Jupyter Notebooks]: http://jupyter.org/
 [Maven]: https://maven.apache.org/

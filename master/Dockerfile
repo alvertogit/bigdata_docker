@@ -1,4 +1,4 @@
-FROM openjdk:8-slim-stretch as spark
+FROM openjdk:8-jdk-slim as spark
 
 # FROM gettyimages/spark
 
@@ -42,29 +42,21 @@ CMD ["bin/spark-class", "org.apache.spark.deploy.master.Master"]
 
 FROM spark as spark-master
 
-# FROM continuumio/miniconda3
+# PYTHON
 
-ENV PATH /opt/conda/bin:$PATH
+RUN apt-get update --fix-missing \
+    && apt-get install -y wget bzip2 ca-certificates git python3.7 python3.7-venv python3-pip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update --fix-missing && \
-    apt-get install -y wget bzip2 ca-certificates git && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-ENV PYTHON_VERSION 3.7.5
-RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh -O ~/miniconda.sh && \
-    /bin/bash ~/miniconda.sh -b -p /opt/conda && \
-    rm ~/miniconda.sh && \
-    /opt/conda/bin/conda update -y -n base -c defaults conda && \
-    /opt/conda/bin/conda install -y python=${PYTHON_VERSION} && \
-    /opt/conda/bin/conda clean -tipsy && \
-    ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
-    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate datascience37" >> ~/.bashrc
+RUN ln -s /usr/bin/python3.7 /usr/bin/python
+RUN ln -s /usr/bin/pip3 /usr/bin/pip
 
 # MAVEN 
 
-ENV MAVEN_VERSION 3.6.2
+WORKDIR /usr/spark-${SPARK_VERSION}/
+
+ENV MAVEN_VERSION 3.6.3
 RUN mkdir /opt/apache-maven
 RUN wget --quiet -c https://apache.rediris.es/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz -O apache-maven.tar.gz && \
     tar xzvf apache-maven.tar.gz -C /opt/apache-maven --strip-components=1 && \
@@ -73,11 +65,6 @@ RUN wget --quiet -c https://apache.rediris.es/maven/maven-3/${MAVEN_VERSION}/bin
 
 ENV MAVEN_HOME /opt/apache-maven
 ENV PATH MAVEN_HOME:$PATH
- 
-# Jupyter
-
-RUN conda install -y jupyter --quiet
-RUN conda install -y nb_conda_kernels
 
 # Work dir files
 
@@ -87,8 +74,10 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 
 # Virtual environment
 
-RUN conda env create -f datascience37.yaml
-RUN conda clean -tipsy
+RUN python -m venv .
+RUN pip install pip==20.0.2
+RUN pip install setuptools==45.1.0
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN
 
