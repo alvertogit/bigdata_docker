@@ -121,6 +121,10 @@ The containers shall run [Spark] as data engine and [HDFS] for storage in master
 
 The number of worker nodes can be increased modifying the [docker-compose] file. By default it creates one master and one worker node.
 
+The following diagram illustrates the [Big Data] cluster architecture in blocks:
+
+![Architecture](docs/architecture.png)
+
 Other possible improvements in the [Big Data] cluster that shall not be implemented here could be:
 
 * Use of [Kubernetes] to manage the [Docker] containers.
