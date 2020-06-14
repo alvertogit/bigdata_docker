@@ -12,6 +12,7 @@ This repository stores all the required components to build a containerized clus
   - [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
   - [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
   - [JUPYTER LAB & NOTEBOOKS](#jupyter-lab--notebooks)
+- [CREDITS](#credits)
 
 ## DEPENDENCIES
 
@@ -254,6 +255,11 @@ http://localhost:8888/?token=<token>
 ```
 
 To shutdown the [Jupyter Lab] service in the master node simply press 'Control+C' and then confirm with 'y'.
+
+## CREDITS
+
+author: alvertogit
+copyright: 2018-2020
 
 [Data Science]: https://en.wikipedia.org/wiki/Data_science
 [Big Data]: https://en.wikipedia.org/wiki/Big_data
