@@ -5,7 +5,7 @@ main.py: It executes an example function.
 '''
 
 __author__      = "alvertogit"
-__copyright__   = "Copyright 2018"
+__copyright__   = "Copyright 2018-2020"
 
 import sys
 

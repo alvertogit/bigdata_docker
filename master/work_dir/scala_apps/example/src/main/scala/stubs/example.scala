@@ -1,5 +1,8 @@
 /**
 
+@author alvertogit
+Copyright 2018-2020
+
 Local execution command example:
 
 ~/usr/spark-2.4.0/work_dir/scala_apps/example$ spark-submit \

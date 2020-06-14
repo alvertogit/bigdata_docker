@@ -5,7 +5,7 @@ functions.py: It contents example functions.
 '''
 
 __author__      = "alvertogit"
-__copyright__   = "Copyright 2018"
+__copyright__   = "Copyright 2018-2020"
 
 import sys
 
