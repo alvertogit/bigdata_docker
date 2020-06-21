@@ -8,12 +8,12 @@
 
   <properties>
     <hadoop.version>3.2.1</hadoop.version>
-    <spark.version>2.4.6</spark.version>
-    <scala.version>2.11.12</scala.version>
-    <scala.binary.version>2.11</scala.binary.version>
+    <spark.version>3.0.0</spark.version>
+    <scala.version>2.12.11</scala.version>
+    <scala.binary.version>2.12</scala.binary.version>
     <elasticsearch.binary.version>20_2.11</elasticsearch.binary.version>
-    <elasticsearch.version>7.7.1</elasticsearch.version>
-    <java.version>1.8</java.version>
+    <elasticsearch.version>7.8.0</elasticsearch.version>
+    <java.version>11</java.version>
     <spark.kafka.version>${spark.version}</spark.kafka.version>
   </properties>
   
