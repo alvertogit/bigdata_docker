@@ -20,7 +20,7 @@ The code has been tested using:
 
 * [Apache Spark] (3.0.0): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 * [Hadoop] (3.2.1): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
-* [Docker] (19.03.11-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+* [Docker] (19.03.12-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
 * [docker-compose] (1.25.5): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
@@ -30,22 +30,22 @@ The virtual environment employed for [Data Science] applications is generated fr
 The main components of this virtual environment are listed below:
 
 * [Python] (3.7): an interpreted high-level programming language for general-purpose programming.
-* [Jupyter Lab] (2.1.4): a web-based interactive development environment for [Jupyter Notebooks], code and data.
+* [Jupyter Lab] (2.2.4): a web-based interactive development environment for [Jupyter Notebooks], code and data.
 * [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
-* [TensorFlow] (2.2.0): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
-* [Matplotlib] (3.2.1): a plotting library for [Python] and its numerical mathematics extension [NumPy].
+* [TensorFlow] (2.3.0): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
+* [Matplotlib] (3.3.0): a plotting library for [Python] and its numerical mathematics extension [NumPy].
 * [NumPy] (1.18.5): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
-* [Pandas] (1.0.4):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
-* [scikit-learn] (0.23.1): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
+* [Pandas] (1.1.0):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
+* [scikit-learn] (0.23.2): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
 * [scikit-image] (0.17.2): a collection of algorithms for image processing with [Python].
 * [TPOT] (0.11.5): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
-* [XGBoost] (1.1.0): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
+* [XGBoost] (1.1.1): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
 * [Folium] (0.11.0): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
-* [ipyleaflet] (0.13.0): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
+* [ipyleaflet] (0.13.3): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
 * [Seaborn] (0.10.1): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
-* [imbalanced-learn] (0.6.2): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
-* [joblib] (0.14.1): a set of tools to provide lightweight pipelining in [Python].
-* [findspark] (1.4.1): a package to make [Spark] Context available in [Jupyter Notebook].
+* [imbalanced-learn] (0.7.0): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
+* [joblib] (0.16.0): a set of tools to provide lightweight pipelining in [Python].
+* [findspark] (1.4.2): a package to make [Spark] Context available in [Jupyter Notebook].
 
 It is available in the [Spark] master node created with [docker-compose].
 
