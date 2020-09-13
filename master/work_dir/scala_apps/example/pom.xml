@@ -7,12 +7,12 @@
   <name>"Example App"</name>
 
   <properties>
-    <hadoop.version>3.2.1</hadoop.version>
-    <spark.version>3.0.0</spark.version>
+    <hadoop.version>3.3.0</hadoop.version>
+    <spark.version>3.0.1</spark.version>
     <scala.version>2.12.11</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
     <elasticsearch.binary.version>20_2.11</elasticsearch.binary.version>
-    <elasticsearch.version>7.8.0</elasticsearch.version>
+    <elasticsearch.version>7.9.1</elasticsearch.version>
     <java.version>11</java.version>
     <spark.kafka.version>${spark.version}</spark.kafka.version>
   </properties>
