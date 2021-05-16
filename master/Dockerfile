@@ -49,9 +49,6 @@ RUN apt-get update --fix-missing \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN ln -s /usr/bin/python3.7 /usr/bin/python
-RUN ln -s /usr/bin/pip3 /usr/bin/pip
-
 # MAVEN 
 
 WORKDIR /usr/spark-${SPARK_VERSION}/
@@ -74,10 +71,10 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 
 # Virtual environment
 
-RUN python -m venv .
-RUN pip install pip==21.0.1
-RUN pip install setuptools==54.1.2
-RUN pip install --no-cache-dir -r requirements.txt
+RUN python3 -m venv .
+RUN python3 -m pip install pip==21.1.1
+RUN python3 -m pip install setuptools==56.2.0
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN
 
