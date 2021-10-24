@@ -18,7 +18,7 @@ This repository stores all the required components to build a containerized clus
 
 The code has been tested using:
 
-* [Apache Spark] (3.1.2): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
+* [Apache Spark] (3.2.0): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 * [Hadoop] (3.3.1): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
 * [Docker] (19.03.13-ce): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
 * [docker-compose] (1.29.2): a tool for defining and running multi-container [Docker] applications.
@@ -29,22 +29,22 @@ The virtual environment employed for [Data Science] applications is generated fr
 
 The main components of this virtual environment are listed below:
 
-* [Python] (3.7): an interpreted high-level programming language for general-purpose programming.
-* [Jupyter Lab] (3.1.6): a web-based interactive development environment for [Jupyter Notebooks], code and data.
+* [Python] (3.9): an interpreted high-level programming language for general-purpose programming.
+* [Jupyter Lab] (3.2.1): a web-based interactive development environment for [Jupyter Notebooks], code and data.
 * [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
 * [TensorFlow] (2.6.0): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
 * [Matplotlib] (3.4.3): a plotting library for [Python] and its numerical mathematics extension [NumPy].
 * [NumPy] (1.19.5): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
-* [Pandas] (1.3.1):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
-* [scikit-learn] (0.24.2): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
-* [scikit-image] (0.18.2): a collection of algorithms for image processing with [Python].
+* [Pandas] (1.3.4):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
+* [scikit-learn] (1.0): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
+* [scikit-image] (0.18.3): a collection of algorithms for image processing with [Python].
 * [TPOT] (0.11.7): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
-* [XGBoost] (1.4.2): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
+* [XGBoost] (1.5.0): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
 * [Folium] (0.12.1): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
 * [ipyleaflet] (0.14.0): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
-* [Seaborn] (0.11.1): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
-* [imbalanced-learn] (0.8.0): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
-* [joblib] (1.0.1): a set of tools to provide lightweight pipelining in [Python].
+* [Seaborn] (0.11.2): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
+* [imbalanced-learn] (0.8.1): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
+* [joblib] (1.1.0): a set of tools to provide lightweight pipelining in [Python].
 * [findspark] (1.4.2): a package to make [Spark] Context available in [Jupyter Notebook].
 
 It is available in the [Spark] master node created with [docker-compose].
@@ -53,7 +53,7 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker-compose exec master bash
-~/usr/spark-3.1.2/$
+~/usr/spark-3.2.0/$
 ```
 
 ## REPOSITORY CONTENT
@@ -165,7 +165,7 @@ It is necessary to filter and prepare the data from [RDD]s to extract the releva
 A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example/** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
 
 ```bash
-~/usr/spark-3.1.2/work_dir/scala_apps/example$ mvn package
+~/usr/spark-3.2.0/work_dir/scala_apps/example$ mvn package
 ```
 
 The application requires the parameters *min-range-Id*, *max-range-Id*, *path-input-log1*, *path-input-log2*, *path-output-log*.
@@ -173,7 +173,7 @@ The application requires the parameters *min-range-Id*, *max-range-Id*, *path-in
 Command to run the **Example** application locally in the [Spark] master node with test logs:
 
 ```bash
-~/usr/spark-3.1.2/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.2.0/work_dir/scala_apps/example$ spark-submit \
 --master local[2] \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -186,7 +186,7 @@ target/example-1.0.jar \
 Command to run the **Example** application in the [Spark] worker node with test logs:
 
 ```bash
-~/usr/spark-3.1.2/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.2.0/work_dir/scala_apps/example$ spark-submit \
 --master spark://master:7077 \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -206,14 +206,14 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker-compose exec master bash
-~/usr/spark-3.1.2/$
+~/usr/spark-3.2.0/$
 ```
 
 Command to run [Python] example application in master node:
 
 ```bash
-~/usr/spark-3.1.2/$ cd work_dir/python_apps/example
-~/usr/spark-3.1.2/work_dir/python_apps/example$ python3 main.py 10000
+~/usr/spark-3.2.0/$ cd work_dir/python_apps/example
+~/usr/spark-3.2.0/work_dir/python_apps/example$ python3 main.py 10000
 ```
 
 ### JUPYTER LAB & NOTEBOOKS
@@ -226,14 +226,14 @@ Command to access master node:
 
 ```bash
 ~/bigdata_docker/$ docker-compose exec master bash
-~/usr/spark-3.1.2$
+~/usr/spark-3.2.0$
 ```
 
 Launch [Jupyter Lab] service in master node.
 
 ```bash
-~/usr/spark-3.1.2$ jupyter lab \
---notebook-dir=/usr/spark-3.1.2/work_dir/notebooks \
+~/usr/spark-3.2.0$ jupyter lab \
+--notebook-dir=/usr/spark-3.2.0/work_dir/notebooks \
 --ip='0.0.0.0' \
 --port=8888 \
 --no-browser \
