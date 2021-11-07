@@ -30,13 +30,13 @@ The virtual environment employed for [Data Science] applications is generated fr
 The main components of this virtual environment are listed below:
 
 * [Python] (3.9): an interpreted high-level programming language for general-purpose programming.
-* [Jupyter Lab] (3.2.1): a web-based interactive development environment for [Jupyter Notebooks], code and data.
+* [Jupyter Lab] (3.2.2): a web-based interactive development environment for [Jupyter Notebooks], code and data.
 * [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
-* [TensorFlow] (2.6.0): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
+* [TensorFlow] (2.7.0): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
 * [Matplotlib] (3.4.3): a plotting library for [Python] and its numerical mathematics extension [NumPy].
-* [NumPy] (1.19.5): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+* [NumPy] (1.21.4): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
 * [Pandas] (1.3.4):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
-* [scikit-learn] (1.0): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
+* [scikit-learn] (1.0.1): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
 * [scikit-image] (0.18.3): a collection of algorithms for image processing with [Python].
 * [TPOT] (0.11.7): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (1.5.0): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
