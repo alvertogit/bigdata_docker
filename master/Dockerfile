@@ -53,7 +53,7 @@ RUN apt-get update --fix-missing \
 
 WORKDIR /usr/spark-${SPARK_VERSION}/
 
-ENV MAVEN_VERSION 3.8.3
+ENV MAVEN_VERSION 3.8.4
 RUN mkdir /opt/apache-maven
 RUN wget --quiet -c https://apache.rediris.es/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz -O apache-maven.tar.gz && \
     tar xzvf apache-maven.tar.gz -C /opt/apache-maven --strip-components=1 && \
@@ -72,8 +72,8 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 # Python virtual environment
 
 RUN python3 -m venv .
-RUN python3 -m pip install pip==21.3.1
-RUN python3 -m pip install setuptools==58.5.3
+RUN python3 -m pip install pip==22.0.3
+RUN python3 -m pip install setuptools==60.8.0
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN
