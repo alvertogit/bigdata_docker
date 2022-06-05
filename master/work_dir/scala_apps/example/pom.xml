@@ -7,7 +7,7 @@
   <name>"Example App"</name>
 
   <properties>
-    <hadoop.version>3.3.2</hadoop.version>
+    <hadoop.version>3.3.3</hadoop.version>
     <spark.version>3.2.1</spark.version>
     <scala.version>2.12.11</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
@@ -16,7 +16,7 @@
     <java.version>11</java.version>
     <spark.kafka.version>${spark.version}</spark.kafka.version>
   </properties>
-  
+
   <repositories>
     <repository>
       <id>apache-repo</id>
@@ -80,7 +80,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-	    <version>3.8.5</version>
+	    <version>3.10.1</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
