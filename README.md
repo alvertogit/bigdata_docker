@@ -11,7 +11,7 @@ This repository stores all the required components to build a containerized clus
   - [HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE](#how-to-run-containerized-cluster-with-docker-compose)
   - [SCALA BIG DATA APPLICATIONS](#scala-big-data-applications)
   - [PYTHON DATA SCIENCE APPLICATIONS](#python-data-science-applications)
-  - [JUPYTER LAB & NOTEBOOKS](#jupyter-lab--notebooks)
+  - [JUPYTER LAB \& NOTEBOOKS](#jupyter-lab--notebooks)
 - [CREDITS](#credits)
 
 ## DEPENDENCIES
@@ -21,7 +21,7 @@ The code has been tested using:
 * [Apache Spark] (3.3.1): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 * [Hadoop] (3.3.4): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
 * [Docker] (20.10): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
-* [docker-compose] (1.29.2): a tool for defining and running multi-container [Docker] applications.
+* [docker-compose] (1.29): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
@@ -30,22 +30,22 @@ The virtual environment employed for [Data Science] applications is generated fr
 The main components of this virtual environment are listed below:
 
 * [Python] (3.9): an interpreted high-level programming language for general-purpose programming.
-* [Jupyter Lab] (3.5): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
+* [Jupyter Lab] (3.6): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
 * [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
 * [TensorFlow] (2.11): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
 * [Matplotlib] (3.6): a plotting library for [Python] and its numerical mathematics extension [NumPy].
-* [NumPy] (1.23): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+* [NumPy] (1.24): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
 * [Pandas] (1.5):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
-* [scikit-learn] (1.1): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
-* [scikit-image] (0.19.3): a collection of algorithms for image processing with [Python].
-* [TPOT] (0.11.7): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
+* [scikit-learn] (1.2): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
+* [scikit-image] (0.19): a collection of algorithms for image processing with [Python].
+* [TPOT] (0.11): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (1.7): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
-* [Folium] (0.13): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
+* [Folium] (0.14): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
 * [ipyleaflet] (0.17): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
 * [Seaborn] (0.12): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
-* [imbalanced-learn] (0.9.1): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
+* [imbalanced-learn] (0.10): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
 * [joblib] (1.2): a set of tools to provide lightweight pipelining in [Python].
-* [findspark] (2.0.1): a package to make [Spark] Context available in [Jupyter Notebook].
+* [findspark] (2.0): a package to make [Spark] Context available in [Jupyter Notebook].
 
 It is available in the [Spark] master node created with [docker-compose].
 
@@ -265,7 +265,7 @@ To shutdown the [Jupyter Lab] service in the master node simply press 'Control+C
 ## CREDITS
 
 author: alvertogit
-copyright: 2018-2022
+copyright: 2018-2023
 
 [Data Science]: https://en.wikipedia.org/wiki/Data_science
 [Big Data]: https://en.wikipedia.org/wiki/Big_data
