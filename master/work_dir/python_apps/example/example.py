@@ -136,13 +136,3 @@ if __name__ == "__main__":
     resultDF.coalesce(1).write.option("header", "true").option("delimiter", ";").csv(path_output_log)
 
     spark.stop()
-
-
-
-
-    # sc.setLogLevel("WARN")
-    # peopleDF = spark.read.option("header","true").csv(sys.argv[1])
-    # # namesDF = peopleDF.select("firstName","lastName")
-    # # namesDF.write.option("header","true").csv(sys.argv[2])
-    # peopleDF.write.option("header","true").csv(sys.argv[2])
-    # spark.stop()
