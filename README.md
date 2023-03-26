@@ -19,9 +19,9 @@ This repository stores all the required components to build a containerized clus
 The code has been tested using:
 
 * [Apache Spark] (3.3.2): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
-* [Hadoop] (3.3.4): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
+* [Hadoop] (3.3.5): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
 * [Docker] (20.10): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
-* [docker-compose] (1.29): a tool for defining and running multi-container [Docker] applications.
+* [Docker Compose] (2.16): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
@@ -47,12 +47,12 @@ The main components of this virtual environment are listed below:
 * [joblib] (1.2): a set of tools to provide lightweight pipelining in [Python].
 * [findspark] (2.0): a package to make [Spark] Context available in [Jupyter Notebook].
 
-It is available in the [Spark] master node created with [docker-compose].
+It is available in the [Spark] master node created with [Docker Compose].
 
 Command to access [Spark] master node:
 
 ```bash
-~/bigdata_docker/$ docker-compose exec master bash
+~/bigdata_docker/$ docker compose exec master bash
 ~/usr/spark-3.3.2/$
 ```
 
@@ -75,10 +75,10 @@ bigdata_docker
 └── README.md
 ```
 
-* **conf**: stores [Spark] configuration files for master and worker nodes. These folders are mapped as volumes in the [docker-compose] file and they can be accessed from containers through **conf/** path.
+* **conf**: stores [Spark] configuration files for master and worker nodes. These folders are mapped as volumes in the [Docker Compose] file and they can be accessed from containers through **conf/** path.
 * **data**: folder to contain raw, processed and test data. It is mapped as volume in [docker-compose] and it can be accessed from containers through **tmp/data/** path.
 * **docker-compose.yml**: creates the [Spark] cluster based on [Docker] in which the applications shall run.
-* **master**: stores all configuration and working files for the [Spark] master and worker nodes of the cluster created with [docker-compose].
+* **master**: stores all configuration and working files for the [Spark] master and worker nodes of the cluster created with [Docker Compose].
   * **Dockerfile**: defines all required tools, virtual environment and work files to be installed in the [Spark] master and worker nodes.
   * **work_dir**: stores files employed for [Big Data] and [Data Science] applications.
 
@@ -120,7 +120,7 @@ The reason for this choice is because [Docker] enables the utilization of contai
 
 The containers shall run [Spark] as data engine and [HDFS] for storage in master and worker nodes. The [Dockerfile] with [Spark] and [Hadoop] is inspired from [gettyimages/spark] [Docker] image available in [Docker Hub]. The [Spark] master node has also [Maven] and the [Python] virtual environment installed.
 
-The number of worker nodes can be increased modifying the [docker-compose] file. By default it creates one master and one worker node.
+The number of worker nodes can be increased modifying the docker-compose file. By default it creates one master and one worker node.
 
 The following diagram illustrates the [Big Data] cluster architecture in blocks:
 
@@ -139,18 +139,18 @@ Other possible improvements in the [Big Data] cluster that shall not be implemen
 
 ### HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE
 
-The steps and commands to run the [Spark] cluster with [docker-compose] are described below.
+The steps and commands to run the [Spark] cluster with [Docker Compose] are described below.
 
-Before executing [docker-compose] is strongly recommended to close other applications to free up resources and ports to avoid potential issues. Then [docker-compose] can be execute to build services:
+Before executing [Docker Compose] is strongly recommended to close other applications to free up resources and ports to avoid potential issues. Then [Docker Compose] can be execute to build services:
 
 ```bash
-~/bigdata_docker/$ docker-compose build
+~/bigdata_docker/$ docker compose build
 ```
 
-Next step consists in executing [docker-compose] up command:
+Next step consists in executing [Docker Compose] up command:
 
 ```bash
-~/bigdata_docker/$ docker-compose up
+~/bigdata_docker/$ docker compose up
 ```
 
 It is likely that for the first time it could spend some time to download [Docker] images and additional packages. If everything goes fine at the end the cluster should be ready appearing something similar to:
@@ -211,7 +211,7 @@ The way to run the [Python] example application is simple. Just go to **work_dir
 Command to access [Spark] master node:
 
 ```bash
-~/bigdata_docker/$ docker-compose exec master bash
+~/bigdata_docker/$ docker compose exec master bash
 ~/usr/spark-3.3.2/$
 ```
 
@@ -231,7 +231,7 @@ All the required packages to run [Jupyter Notebooks] remotely in the [Spark] mas
 Command to access master node:
 
 ```bash
-~/bigdata_docker/$ docker-compose exec master bash
+~/bigdata_docker/$ docker compose exec master bash
 ~/usr/spark-3.3.2$
 ```
 
@@ -278,7 +278,7 @@ copyright: 2018-2023
 [Scala]: https://www.scala-lang.org/
 [Functional Programming]: https://en.wikipedia.org/wiki/Functional_programming
 [Docker]: https://www.docker.com/
-[docker-compose]: https://github.com/docker/compose
+[Docker Compose]: https://github.com/docker/compose
 [Dockerfile]: https://docs.docker.com/engine/reference/builder/
 [Apache Spark]: https://spark.apache.org/
 [Spark]: https://spark.apache.org/
