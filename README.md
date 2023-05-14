@@ -18,9 +18,9 @@ This repository stores all the required components to build a containerized clus
 
 The code has been tested using:
 
-* [Apache Spark] (3.3.2): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
+* [Apache Spark] (3.4.0): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 * [Hadoop] (3.3.5): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
-* [Docker] (20.10): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+* [Docker] (23.0): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
 * [Docker Compose] (2.16): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
@@ -35,7 +35,7 @@ The main components of this virtual environment are listed below:
 * [TensorFlow] (2.11): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
 * [Matplotlib] (3.7): a plotting library for [Python] and its numerical mathematics extension [NumPy].
 * [NumPy] (1.24): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
-* [Pandas] (1.5):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
+* [Pandas] (2.0):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
 * [scikit-learn] (1.2): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
 * [scikit-image] (0.20): a collection of algorithms for image processing with [Python].
 * [TPOT] (0.11): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
@@ -53,7 +53,7 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.3.2/$
+~/usr/spark-3.4.0/$
 ```
 
 ## REPOSITORY CONTENT
@@ -171,7 +171,7 @@ It is necessary to filter and prepare the data from [RDD]s to extract the releva
 A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example/** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
 
 ```bash
-~/usr/spark-3.3.2/work_dir/scala_apps/example$ mvn package
+~/usr/spark-3.4.0/work_dir/scala_apps/example$ mvn package
 ```
 
 The application requires the parameters *min-range-Id*, *max-range-Id*, *path-input-log1*, *path-input-log2*, *path-output-log*.
@@ -179,7 +179,7 @@ The application requires the parameters *min-range-Id*, *max-range-Id*, *path-in
 Command to run the **Example** application locally in the [Spark] master node with test logs:
 
 ```bash
-~/usr/spark-3.3.2/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.4.0/work_dir/scala_apps/example$ spark-submit \
 --master local[2] \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -192,7 +192,7 @@ target/example-1.0.jar \
 Command to run the **Example** application in the [Spark] worker node with test logs:
 
 ```bash
-~/usr/spark-3.3.2/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.4.0/work_dir/scala_apps/example$ spark-submit \
 --master spark://master:7077 \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -212,14 +212,14 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.3.2/$
+~/usr/spark-3.4.0/$
 ```
 
 Command to run [Python] example application in master node:
 
 ```bash
-~/usr/spark-3.3.2/$ cd work_dir/python_apps/example
-~/usr/spark-3.3.2/work_dir/python_apps/example$ python3 main.py 10000
+~/usr/spark-3.4.0/$ cd work_dir/python_apps/example
+~/usr/spark-3.4.0/work_dir/python_apps/example$ python3 main.py 10000
 ```
 
 ### JUPYTER LAB & NOTEBOOKS
@@ -232,14 +232,14 @@ Command to access master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.3.2$
+~/usr/spark-3.4.0$
 ```
 
 Launch [Jupyter Lab] service in master node.
 
 ```bash
-~/usr/spark-3.3.2$ jupyter lab \
---notebook-dir=/usr/spark-3.3.2/work_dir/notebooks \
+~/usr/spark-3.4.0$ jupyter lab \
+--notebook-dir=/usr/spark-3.4.0/work_dir/notebooks \
 --ip='0.0.0.0' \
 --port=8888 \
 --no-browser \

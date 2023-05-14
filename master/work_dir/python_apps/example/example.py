@@ -3,7 +3,7 @@ example.py: pyspark application example.
 
 Local execution command example:
 
-~/usr/spark-3.3.2/work_dir/python_apps/example$ spark-submit \
+~/usr/spark-3.4.0/work_dir/python_apps/example$ spark-submit \
 --master local[2] \
 --driver-memory 10g \
 example.py \
@@ -14,7 +14,7 @@ example.py \
 
 Worker execution command example:
 
-~/usr/spark-3.3.2/work_dir/python_apps/example$ spark-submit \
+~/usr/spark-3.4.0/work_dir/python_apps/example$ spark-submit \
 --master spark://master:7077 \
 --driver-memory 10g \
 example.py
