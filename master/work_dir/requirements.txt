@@ -11,7 +11,7 @@ matplotlib==3.7.1
 numpy==1.24.3
 pandas==2.0.1
 pydot==1.4.2
-requests==2.30.0
+requests==2.31.0
 scikit-image==0.20.0
 scikit-learn==1.2.2
 seaborn==0.12.2
