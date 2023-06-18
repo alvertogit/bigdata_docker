@@ -73,7 +73,7 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 
 RUN python3 -m venv .
 RUN python3 -m pip install pip==23.1.2
-RUN python3 -m pip install setuptools==67.7.2
+RUN python3 -m pip install setuptools==67.8.0
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN
