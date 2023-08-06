@@ -3,7 +3,7 @@ FROM openjdk:11-jdk-slim-bullseye as spark
 # FROM gettyimages/spark
 
 RUN apt-get update \
-    && apt-get install -y curl unzip \
+    && apt-get install -y curl procps unzip wget \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -11,7 +11,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 # HADOOP
 
-ENV HADOOP_VERSION 3.3.5
+ENV HADOOP_VERSION 3.3.6
 ENV HADOOP_HOME /usr/hadoop-$HADOOP_VERSION
 ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 ENV PATH $PATH:$HADOOP_HOME/bin
@@ -24,7 +24,7 @@ RUN curl -sL --retry 3 \
 
 # SPARK
 
-ENV SPARK_VERSION 3.4.0
+ENV SPARK_VERSION 3.4.1
 ENV SPARK_PACKAGE spark-${SPARK_VERSION}-bin-without-hadoop
 ENV SPARK_HOME /usr/spark-${SPARK_VERSION}
 ENV SPARK_DIST_CLASSPATH="$HADOOP_HOME/etc/hadoop/*:$HADOOP_HOME/share/hadoop/common/lib/*:$HADOOP_HOME/share/hadoop/common/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/hdfs/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/yarn/lib/*:$HADOOP_HOME/share/hadoop/yarn/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*:$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/tools/lib/*"
@@ -45,7 +45,7 @@ FROM spark as spark-master
 # PYTHON
 
 RUN apt-get update --fix-missing \
-    && apt-get install -y wget bzip2 ca-certificates git python3.9 python3.9-venv python3-pip \
+    && apt-get install -y bzip2 ca-certificates git python3.9 python3.9-venv python3-pip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -53,7 +53,7 @@ RUN apt-get update --fix-missing \
 
 WORKDIR /usr/spark-${SPARK_VERSION}/
 
-ENV MAVEN_VERSION 3.9.2
+ENV MAVEN_VERSION 3.9.4
 RUN mkdir /opt/apache-maven
 RUN wget --quiet -c https://apache.rediris.es/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz -O apache-maven.tar.gz && \
     tar xzvf apache-maven.tar.gz -C /opt/apache-maven --strip-components=1 && \
@@ -72,8 +72,8 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 # Python virtual environment
 
 RUN python3 -m venv .
-RUN python3 -m pip install pip==23.1.2
-RUN python3 -m pip install setuptools==67.8.0
+RUN python3 -m pip install pip==23.2.1
+RUN python3 -m pip install setuptools==68.0.0
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN

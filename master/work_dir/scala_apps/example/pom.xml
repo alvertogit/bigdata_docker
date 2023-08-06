@@ -7,8 +7,8 @@
   <name>"Example App"</name>
 
   <properties>
-    <hadoop.version>3.3.5</hadoop.version>
-    <spark.version>3.4.0</spark.version>
+    <hadoop.version>3.3.6</hadoop.version>
+    <spark.version>3.4.1</spark.version>
     <scala.version>2.12.11</scala.version>
     <scala.binary.version>2.12</scala.binary.version>
     <elasticsearch.binary.version>20_2.11</elasticsearch.binary.version>
@@ -67,9 +67,9 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.scala-tools</groupId>
-        <artifactId>maven-scala-plugin</artifactId>
-	    <version>2.15.2</version>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+	    <version>4.8.1</version>
         <executions>
           <execution>
             <goals>
@@ -80,7 +80,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-	    <version>3.10.1</version>
+	    <version>3.11.0</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
