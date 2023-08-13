@@ -1,6 +1,4 @@
-FROM openjdk:11-jdk-slim-bullseye as spark
-
-# FROM gettyimages/spark
+FROM eclipse-temurin:17-jdk-jammy as spark
 
 RUN apt-get update \
     && apt-get install -y curl procps unzip wget \
@@ -45,7 +43,7 @@ FROM spark as spark-master
 # PYTHON
 
 RUN apt-get update --fix-missing \
-    && apt-get install -y bzip2 ca-certificates git python3.9 python3.9-venv python3-pip \
+    && apt-get install -y bzip2 ca-certificates git python3.10 python3.10-venv python3-pip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -55,7 +53,7 @@ WORKDIR /usr/spark-${SPARK_VERSION}/
 
 ENV MAVEN_VERSION 3.9.4
 RUN mkdir /opt/apache-maven
-RUN wget --quiet -c https://apache.rediris.es/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz -O apache-maven.tar.gz && \
+RUN wget --quiet -c https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz -O apache-maven.tar.gz && \
     tar xzvf apache-maven.tar.gz -C /opt/apache-maven --strip-components=1 && \
     rm -f apache-maven.tar.gz && \
     ln -s /opt/apache-maven/bin/mvn /usr/bin/mvn
