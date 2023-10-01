@@ -32,9 +32,9 @@ The main components of this virtual environment are listed below:
 * [Python] (3.10): an interpreted high-level programming language for general-purpose programming.
 * [Jupyter Lab] (4.0): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
 * [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
-* [TensorFlow] (2.13): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
+* [TensorFlow] (2.14): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
 * [Matplotlib] (3.8): a plotting library for [Python] and its numerical mathematics extension [NumPy].
-* [NumPy] (1.23): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+* [NumPy] (1.26): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
 * [Pandas] (2.1):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
 * [scikit-learn] (1.3): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
 * [scikit-image] (0.21): a collection of algorithms for image processing with [Python].
