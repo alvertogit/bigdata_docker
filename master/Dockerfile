@@ -70,7 +70,7 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 # Python virtual environment
 
 RUN python3 -m venv .
-RUN python3 -m pip install pip==23.3.2
+RUN python3 -m pip install pip==24.0
 RUN python3 -m pip install setuptools==69.0.3
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
