@@ -18,8 +18,8 @@ This repository stores all the required components to build a containerized clus
 
 The code has been tested using:
 
-* [Apache Spark] (3.5.0): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
-* [Hadoop] (3.3.6): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
+* [Apache Spark] (3.5): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
+* [Hadoop] (3.3): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
 * [Docker] (25.0): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
 * [Docker Compose] (2.24): a tool for defining and running multi-container [Docker] applications.
 
@@ -32,7 +32,7 @@ The main components of this virtual environment are listed below:
 * [Python] (3.10): an interpreted high-level programming language for general-purpose programming.
 * [Jupyter Lab] (4.1): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
 * [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
-* [TensorFlow] (2.15): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
+* [TensorFlow] (2.16): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
 * [Matplotlib] (3.8): a plotting library for [Python] and its numerical mathematics extension [NumPy].
 * [NumPy] (1.26): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
 * [Pandas] (2.2):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
@@ -40,7 +40,7 @@ The main components of this virtual environment are listed below:
 * [scikit-image] (0.22): a collection of algorithms for image processing with [Python].
 * [TPOT] (0.12): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 * [XGBoost] (2.0): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
-* [Folium] (0.15): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
+* [Folium] (0.16): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
 * [ipyleaflet] (0.18): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
 * [Seaborn] (0.13): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
 * [imbalanced-learn] (0.12): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
@@ -53,7 +53,7 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.5.0/$
+~/usr/spark-3.5.1/$
 ```
 
 ## REPOSITORY CONTENT
@@ -171,7 +171,7 @@ It is necessary to filter and prepare the data from [RDD]s to extract the releva
 A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example/** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
 
 ```bash
-~/usr/spark-3.5.0/work_dir/scala_apps/example$ mvn package
+~/usr/spark-3.5.1/work_dir/scala_apps/example$ mvn package
 ```
 
 The application requires the parameters *min-range-Id*, *max-range-Id*, *path-input-log1*, *path-input-log2*, *path-output-log*.
@@ -179,7 +179,7 @@ The application requires the parameters *min-range-Id*, *max-range-Id*, *path-in
 Command to run the **Example** application locally in the [Spark] master node with test logs:
 
 ```bash
-~/usr/spark-3.5.0/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.5.1/work_dir/scala_apps/example$ spark-submit \
 --master local[2] \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -192,7 +192,7 @@ target/example-1.0.jar \
 Command to run the **Example** application in the [Spark] worker node with test logs:
 
 ```bash
-~/usr/spark-3.5.0/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.5.1/work_dir/scala_apps/example$ spark-submit \
 --master spark://master:7077 \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -212,14 +212,14 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.5.0/$
+~/usr/spark-3.5.1/$
 ```
 
 Command to run [Python] example application in master node:
 
 ```bash
-~/usr/spark-3.5.0/$ cd work_dir/python_apps/example
-~/usr/spark-3.5.0/work_dir/python_apps/example$ python3 main.py 10000
+~/usr/spark-3.5.1/$ cd work_dir/python_apps/example
+~/usr/spark-3.5.1/work_dir/python_apps/example$ python3 main.py 10000
 ```
 
 ### JUPYTER LAB & NOTEBOOKS
@@ -232,13 +232,13 @@ Command to access master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.5.0$
+~/usr/spark-3.5.1$
 ```
 
 Launch [Jupyter Lab] service in master node.
 
 ```bash
-~/usr/spark-3.5.0$ jupyter lab \
+~/usr/spark-3.5.1$ jupyter lab \
 --notebook-dir=/usr/spark-/work_dir/notebooks \
 --ip='0.0.0.0' \
 --port=8888 \
