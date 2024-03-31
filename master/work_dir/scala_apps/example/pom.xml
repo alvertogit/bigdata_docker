@@ -7,7 +7,7 @@
   <name>"Example App"</name>
 
   <properties>
-    <hadoop.version>3.3.6</hadoop.version>
+    <hadoop.version>3.4.0</hadoop.version>
     <spark.version>3.5.1</spark.version>
     <scala.version>2.12.11</scala.version>
     <scala.binary.version>2.12</scala.binary.version>

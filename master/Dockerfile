@@ -9,7 +9,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 # HADOOP
 
-ENV HADOOP_VERSION 3.3.6
+ENV HADOOP_VERSION 3.4.0
 ENV HADOOP_HOME /usr/hadoop-$HADOOP_VERSION
 ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 ENV PATH $PATH:$HADOOP_HOME/bin
@@ -71,7 +71,7 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 
 RUN python3 -m venv .
 RUN python3 -m pip install pip==24.0
-RUN python3 -m pip install setuptools==69.1.1
+RUN python3 -m pip install setuptools==69.2.0
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN
