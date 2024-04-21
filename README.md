@@ -18,10 +18,10 @@ This repository stores all the required components to build a containerized clus
 
 The code has been tested using:
 
-* [Apache Spark] (3.5): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
-* [Hadoop] (3.4): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
-* [Docker] (26.0): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
-* [Docker Compose] (2.25): a tool for defining and running multi-container [Docker] applications.
+- [Apache Spark] (3.5): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
+- [Hadoop] (3.4): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
+- [Docker] (26.0): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+- [Docker Compose] (2.26): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
@@ -29,23 +29,23 @@ The virtual environment employed for [Data Science] applications is generated fr
 
 The main components of this virtual environment are listed below:
 
-* [Python] (3.10): an interpreted high-level programming language for general-purpose programming.
-* [Jupyter Lab] (4.1): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
-* [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
-* [TensorFlow] (2.16): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
-* [Matplotlib] (3.8): a plotting library for [Python] and its numerical mathematics extension [NumPy].
-* [NumPy] (1.26): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
-* [Pandas] (2.2):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
-* [scikit-learn] (1.4): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
-* [scikit-image] (0.22): a collection of algorithms for image processing with [Python].
-* [TPOT] (0.12): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
-* [XGBoost] (2.0): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
-* [Folium] (0.16): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
-* [ipyleaflet] (0.18): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
-* [Seaborn] (0.13): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
-* [imbalanced-learn] (0.12): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
-* [joblib] (1.3): a set of tools to provide lightweight pipelining in [Python].
-* [findspark] (2.0): a package to make [Spark] Context available in [Jupyter Notebook].
+- [Python] (3.10): an interpreted high-level programming language for general-purpose programming.
+- [Jupyter Lab] (4.1): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
+- [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
+- [TensorFlow] (2.16): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
+- [Matplotlib] (3.8): a plotting library for [Python] and its numerical mathematics extension [NumPy].
+- [NumPy] (1.26): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
+- [Pandas] (2.2):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
+- [scikit-learn] (1.4): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
+- [scikit-image] (0.23): a collection of algorithms for image processing with [Python].
+- [TPOT] (0.12): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
+- [XGBoost] (2.0): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
+- [Folium] (0.16): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
+- [ipyleaflet] (0.18): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
+- [Seaborn] (0.13): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
+- [imbalanced-learn] (0.12): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
+- [joblib] (1.4): a set of tools to provide lightweight pipelining in [Python].
+- [findspark] (2.0): a package to make [Spark] Context available in [Jupyter Notebook].
 
 It is available in the [Spark] master node created with [Docker Compose].
 
@@ -71,16 +71,23 @@ bigdata_docker
 ├── master
 │   ├── Dockerfile
 │   └── work_dir
+│       ├── notebooks
+│       ├── pyproject.toml
+│       ├── python_apps
+│       │   └── example
+│       ├── requirements.txt
+│       └── scala_apps
+│           └── example
 ├── docker-compose.yml
 └── README.md
 ```
 
-* **conf**: stores [Spark] configuration files for master and worker nodes. These folders are mapped as volumes in the [Docker Compose] file and they can be accessed from containers through **conf/** path.
-* **data**: folder to contain raw, processed and test data. It is mapped as volume in [docker-compose] and it can be accessed from containers through **tmp/data/** path.
-* **docker-compose.yml**: creates the [Spark] cluster based on [Docker] in which the applications shall run.
-* **master**: stores all configuration and working files for the [Spark] master and worker nodes of the cluster created with [Docker Compose].
-  * **Dockerfile**: defines all required tools, virtual environment and work files to be installed in the [Spark] master and worker nodes.
-  * **work_dir**: stores files employed for [Big Data] and [Data Science] applications.
+- **conf**: stores [Spark] configuration files for master and worker nodes. These folders are mapped as volumes in the [Docker Compose] file and they can be accessed from containers through **conf/** path.
+- **data**: folder to contain raw, processed and test data. It is mapped as volume in [docker-compose] and it can be accessed from containers through **tmp/data/** path.
+- **docker-compose.yml**: creates the [Spark] cluster based on [Docker] in which the applications shall run.
+- **master**: stores all configuration and working files for the [Spark] master and worker nodes of the cluster created with [Docker Compose].
+- **Dockerfile**: defines all required tools, virtual environment and work files to be installed in the [Spark] master and worker nodes.
+- **work_dir**: stores files employed for [Big Data] and [Data Science] applications.
 
 ### WORK DIRECTORY CONTENT
 
@@ -97,10 +104,10 @@ work_dir
     └── example
 ```
 
-* **requirements.txt**: file which defines the dependencies for the virtual environment employed by [Python] [Data Science] applications and [Jupyter Notebooks].
-* **notebooks**: [Jupyter Notebooks] for data analysis, elaboration and training of prediction models and testing.
-* **scala_apps**: used to contain [Spark] applications written in [Scala]. There is one example application compiled using [Maven].
-* **python_apps**: folder to store [Python] applications. There is one example application.
+- **requirements.txt**: file which defines the dependencies for the virtual environment employed by [Python] [Data Science] applications and [Jupyter Notebooks].
+- **notebooks**: [Jupyter Notebooks] for data analysis, elaboration and training of prediction models and testing.
+- **scala_apps**: used to contain [Spark] applications written in [Scala]. There is one example application compiled using [Maven].
+- **python_apps**: folder to store [Python] applications. There is one example application.
 
 ## ARCHITECTURE
 
@@ -134,8 +141,8 @@ flowchart LR;
 
 Other possible improvements in the [Big Data] cluster that shall not be implemented here could be:
 
-* Use of [Kubernetes] to manage the [Docker] containers.
-* Take advantage of [Cloud Computing] services, such as [AWS EMR], to build up a [Spark] cluster with the desired amount of resources and only utilize them when is required for cost efficiency.
+- Use of [Kubernetes] to manage the [Docker] containers.
+- Take advantage of [Cloud Computing] services, such as [AWS EMR], to build up a [Spark] cluster with the desired amount of resources and only utilize them when is required for cost efficiency.
 
 ### HOW TO RUN CONTAINERIZED CLUSTER WITH DOCKER COMPOSE
 
@@ -269,14 +276,12 @@ copyright: 2018-2024
 
 [Data Science]: https://en.wikipedia.org/wiki/Data_science
 [Big Data]: https://en.wikipedia.org/wiki/Big_data
-[Artificial Intelligence]: https://en.wikipedia.org/wiki/Artificial_intelligence
 [Python]: https://www.python.org/
 [Machine Learning]: https://en.wikipedia.org/wiki/Machine_learning
 [Deep Learning]: https://en.wikipedia.org/wiki/Deep_learning
 [Random Forest]: https://en.wikipedia.org/wiki/Random_forest
 [Gradient Boosting]: https://en.wikipedia.org/wiki/Gradient_boosting
 [Scala]: https://www.scala-lang.org/
-[Functional Programming]: https://en.wikipedia.org/wiki/Functional_programming
 [Docker]: https://www.docker.com/
 [Docker Compose]: https://github.com/docker/compose
 [Dockerfile]: https://docs.docker.com/engine/reference/builder/
@@ -288,7 +293,6 @@ copyright: 2018-2024
 [Hadoop Distributed File System]: https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
 [HDFS]: https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html
 [RDD]: https://spark.apache.org/docs/latest/rdd-programming-guide.html
-[pyspark]: https://pypi.org/project/pyspark/
 [Kubernetes]: https://kubernetes.io/
 [Keras]: https://keras.io/
 [TensorFlow]: https://www.tensorflow.org/
