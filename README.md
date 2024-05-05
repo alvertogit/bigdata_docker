@@ -41,7 +41,7 @@ The main components of this virtual environment are listed below:
 - [TPOT] (0.12): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 - [XGBoost] (2.0): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
 - [Folium] (0.16): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
-- [ipyleaflet] (0.18): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
+- [ipyleaflet] (0.19): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
 - [Seaborn] (0.13): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
 - [imbalanced-learn] (0.12): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
 - [joblib] (1.4): a set of tools to provide lightweight pipelining in [Python].
