@@ -21,7 +21,7 @@ The code has been tested using:
 - [Apache Spark] (3.5): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 - [Hadoop] (3.4): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
 - [Docker] (26.1): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
-- [Docker Compose] (2.26): a tool for defining and running multi-container [Docker] applications.
+- [Docker Compose] (2.27): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
@@ -30,7 +30,7 @@ The virtual environment employed for [Data Science] applications is generated fr
 The main components of this virtual environment are listed below:
 
 - [Python] (3.10): an interpreted high-level programming language for general-purpose programming.
-- [Jupyter Lab] (4.1): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
+- [Jupyter Lab] (4.2): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
 - [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
 - [TensorFlow] (2.16): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
 - [Matplotlib] (3.8): a plotting library for [Python] and its numerical mathematics extension [NumPy].
