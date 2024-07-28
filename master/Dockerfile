@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-jammy as spark
+FROM eclipse-temurin:17-jdk-noble AS spark
 
 RUN apt-get update \
     && apt-get install -y curl procps unzip wget \
@@ -38,16 +38,16 @@ WORKDIR $SPARK_HOME
 
 CMD ["sbin/start-master.sh"]
 
-FROM spark as spark-master
+FROM spark AS spark-master
 
 # PYTHON
 
 RUN apt-get update --fix-missing \
-    && apt-get install -y bzip2 ca-certificates git python3.10 python3.10-venv python3-pip \
+    && apt-get install -y bzip2 ca-certificates git python3.12 python3.12-venv python3-pip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# MAVEN 
+# MAVEN
 
 WORKDIR /usr/spark-${SPARK_VERSION}/
 
@@ -69,9 +69,10 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 
 # Python virtual environment
 
-RUN python3 -m venv .
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
 RUN python3 -m pip install pip==24.1.2
-RUN python3 -m pip install setuptools==70.3.0
+RUN python3 -m pip install setuptools==71.1.0
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN
