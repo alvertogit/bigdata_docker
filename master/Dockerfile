@@ -9,10 +9,10 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 # HADOOP
 
-ENV HADOOP_VERSION 3.4.0
-ENV HADOOP_HOME /usr/hadoop-$HADOOP_VERSION
+ENV HADOOP_VERSION=3.4.0
+ENV HADOOP_HOME=/usr/hadoop-$HADOOP_VERSION
 ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
-ENV PATH $PATH:$HADOOP_HOME/bin
+ENV PATH=$PATH:$HADOOP_HOME/bin
 RUN curl -sL --retry 3 \
     "https://www-eu.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz" \
     | gunzip \
@@ -22,11 +22,11 @@ RUN curl -sL --retry 3 \
 
 # SPARK
 
-ENV SPARK_VERSION 3.5.2
-ENV SPARK_PACKAGE spark-${SPARK_VERSION}-bin-without-hadoop
-ENV SPARK_HOME /usr/spark-${SPARK_VERSION}
+ENV SPARK_VERSION=3.5.2
+ENV SPARK_PACKAGE=spark-${SPARK_VERSION}-bin-without-hadoop
+ENV SPARK_HOME=/usr/spark-${SPARK_VERSION}
 ENV SPARK_DIST_CLASSPATH="$HADOOP_HOME/etc/hadoop/*:$HADOOP_HOME/share/hadoop/common/lib/*:$HADOOP_HOME/share/hadoop/common/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/hdfs/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/yarn/lib/*:$HADOOP_HOME/share/hadoop/yarn/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*:$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/tools/lib/*"
-ENV PATH $PATH:${SPARK_HOME}/bin
+ENV PATH=$PATH:${SPARK_HOME}/bin
 RUN curl -sL --retry 3 \
     "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=spark/spark-${SPARK_VERSION}/${SPARK_PACKAGE}.tgz" \
     | gunzip \
@@ -51,15 +51,15 @@ RUN apt-get update --fix-missing \
 
 WORKDIR /usr/spark-${SPARK_VERSION}/
 
-ENV MAVEN_VERSION 3.9.9
+ENV MAVEN_VERSION=3.9.9
 RUN mkdir /opt/apache-maven
 RUN wget --quiet -c https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz -O apache-maven.tar.gz && \
     tar xzvf apache-maven.tar.gz -C /opt/apache-maven --strip-components=1 && \
     rm -f apache-maven.tar.gz && \
     ln -s /opt/apache-maven/bin/mvn /usr/bin/mvn
 
-ENV MAVEN_HOME /opt/apache-maven
-ENV PATH MAVEN_HOME:$PATH
+ENV MAVEN_HOME=/opt/apache-maven
+ENV PATH=MAVEN_HOME:$PATH
 
 # Work dir files
 
