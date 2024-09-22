@@ -20,7 +20,7 @@ The code has been tested using:
 
 - [Apache Spark] (3.5): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 - [Hadoop] (3.4): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
-- [Docker] (27.2): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+- [Docker] (27.3): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
 - [Docker Compose] (2.29): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
