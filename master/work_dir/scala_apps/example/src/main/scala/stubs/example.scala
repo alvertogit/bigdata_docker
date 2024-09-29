@@ -5,7 +5,7 @@ Copyright 2018-2024
 
 Local execution command example:
 
-~/usr/spark-3.5.2/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.5.3/work_dir/scala_apps/example$ spark-submit \
 --master local[2] \
 --driver-memory 10g \
 --class stubs.Example \
@@ -17,7 +17,7 @@ target/example-1.0.jar \
 
 Worker execution command example:
 
-~/usr/spark-3.5.2/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.5.3/work_dir/scala_apps/example$ spark-submit \
 --master spark://master:7077 \
 --driver-memory 10g \
 --class stubs.Example \

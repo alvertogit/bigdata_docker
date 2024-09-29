@@ -53,7 +53,7 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.5.2/$
+~/usr/spark-3.5.3/$
 ```
 
 ## REPOSITORY CONTENT
@@ -180,7 +180,7 @@ It is necessary to filter and prepare the data from [RDD]s to extract the releva
 A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example/** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
 
 ```bash
-~/usr/spark-3.5.2/work_dir/scala_apps/example$ mvn package
+~/usr/spark-3.5.3/work_dir/scala_apps/example$ mvn package
 ```
 
 The application requires the parameters *min-range-Id*, *max-range-Id*, *path-input-log1*, *path-input-log2*, *path-output-log*.
@@ -188,7 +188,7 @@ The application requires the parameters *min-range-Id*, *max-range-Id*, *path-in
 Command to run the **Example** application locally in the [Spark] master node with test logs:
 
 ```bash
-~/usr/spark-3.5.2/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.5.3/work_dir/scala_apps/example$ spark-submit \
 --master local[2] \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -201,7 +201,7 @@ target/example-1.0.jar \
 Command to run the **Example** application in the [Spark] worker node with test logs:
 
 ```bash
-~/usr/spark-3.5.2/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.5.3/work_dir/scala_apps/example$ spark-submit \
 --master spark://master:7077 \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -221,14 +221,14 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.5.2/$
+~/usr/spark-3.5.3/$
 ```
 
 Command to run [Python] example application in master node:
 
 ```bash
-~/usr/spark-3.5.2/$ cd work_dir/python_apps/example
-~/usr/spark-3.5.2/work_dir/python_apps/example$ python3 main.py 10000
+~/usr/spark-3.5.3/$ cd work_dir/python_apps/example
+~/usr/spark-3.5.3/work_dir/python_apps/example$ python3 main.py 10000
 ```
 
 ### JUPYTER LAB & NOTEBOOKS
@@ -241,14 +241,14 @@ Command to access master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.5.2$
+~/usr/spark-3.5.3$
 ```
 
 Launch [Jupyter Lab] service in master node.
 
 ```bash
-~/usr/spark-3.5.2$ jupyter lab \
---notebook-dir=/usr/spark-3.5.2/work_dir/notebooks \
+~/usr/spark-3.5.3$ jupyter lab \
+--notebook-dir=/usr/spark-3.5.3/work_dir/notebooks \
 --ip='0.0.0.0' \
 --port=8888 \
 --no-browser \
