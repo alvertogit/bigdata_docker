@@ -30,7 +30,7 @@ The virtual environment employed for [Data Science] applications is generated fr
 The main components of this virtual environment are listed below:
 
 - [Python] (3.12): an interpreted high-level programming language for general-purpose programming.
-- [Jupyter Lab] (4.2): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
+- [Jupyter Lab] (4.3): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
 - [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
 - [TensorFlow] (2.18): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
 - [Matplotlib] (3.9): a plotting library for [Python] and its numerical mathematics extension [NumPy].

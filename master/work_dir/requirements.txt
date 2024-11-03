@@ -6,7 +6,7 @@ imbalanced-learn==0.12.4
 ipyleaflet==0.19.2
 ipywidgets==8.1.5
 joblib==1.4.2
-jupyterlab==4.2.5
+jupyterlab==4.3.0
 matplotlib==3.9.2
 numpy==2.0.2
 pandas==2.2.3
@@ -14,7 +14,7 @@ pre-commit==4.0.1
 pur==7.3.2
 pydot==3.0.2
 requests==2.32.3
-ruff==0.7.1
+ruff==0.7.2
 scikit-image==0.24.0
 scikit-learn==1.5.2
 seaborn==0.13.2
