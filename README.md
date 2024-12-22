@@ -21,7 +21,7 @@ The code has been tested using:
 - [Apache Spark] (3.5): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 - [Hadoop] (3.4): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
 - [Docker] (27.4): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
-- [Docker Compose] (2.31): a tool for defining and running multi-container [Docker] applications.
+- [Docker Compose] (2.32): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
@@ -43,7 +43,7 @@ The main components of this virtual environment are listed below:
 - [Folium] (0.19): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
 - [ipyleaflet] (0.19): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
 - [Seaborn] (0.13): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
-- [imbalanced-learn] (0.12): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
+- [imbalanced-learn] (0.13): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
 - [joblib] (1.4): a set of tools to provide lightweight pipelining in [Python].
 - [findspark] (2.0): a package to make [Spark] Context available in [Jupyter Notebook].
 
@@ -53,7 +53,7 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.5.3/$
+~/usr/spark-3.5.4/$
 ```
 
 ## REPOSITORY CONTENT
@@ -180,7 +180,7 @@ It is necessary to filter and prepare the data from [RDD]s to extract the releva
 A [Scala] [Big Data] example application is stored in **work_dir/scala_apps/example/** folder and for the first time it must be compiled with [Maven] to generate the *.jar* target file. This is done automatically with the [Dockerfile] but it can be done manually using the following command:
 
 ```bash
-~/usr/spark-3.5.3/work_dir/scala_apps/example$ mvn package
+~/usr/spark-3.5.4/work_dir/scala_apps/example$ mvn package
 ```
 
 The application requires the parameters *min-range-Id*, *max-range-Id*, *path-input-log1*, *path-input-log2*, *path-output-log*.
@@ -188,7 +188,7 @@ The application requires the parameters *min-range-Id*, *max-range-Id*, *path-in
 Command to run the **Example** application locally in the [Spark] master node with test logs:
 
 ```bash
-~/usr/spark-3.5.3/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.5.4/work_dir/scala_apps/example$ spark-submit \
 --master local[2] \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -201,7 +201,7 @@ target/example-1.0.jar \
 Command to run the **Example** application in the [Spark] worker node with test logs:
 
 ```bash
-~/usr/spark-3.5.3/work_dir/scala_apps/example$ spark-submit \
+~/usr/spark-3.5.4/work_dir/scala_apps/example$ spark-submit \
 --master spark://master:7077 \
 --class stubs.Example \
 target/example-1.0.jar \
@@ -221,14 +221,14 @@ Command to access [Spark] master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.5.3/$
+~/usr/spark-3.5.4/$
 ```
 
 Command to run [Python] example application in master node:
 
 ```bash
-~/usr/spark-3.5.3/$ cd work_dir/python_apps/example
-~/usr/spark-3.5.3/work_dir/python_apps/example$ python3 main.py 10000
+~/usr/spark-3.5.4/$ cd work_dir/python_apps/example
+~/usr/spark-3.5.4/work_dir/python_apps/example$ python3 main.py 10000
 ```
 
 ### JUPYTER LAB & NOTEBOOKS
@@ -241,14 +241,14 @@ Command to access master node:
 
 ```bash
 ~/bigdata_docker/$ docker compose exec master bash
-~/usr/spark-3.5.3$
+~/usr/spark-3.5.4$
 ```
 
 Launch [Jupyter Lab] service in master node.
 
 ```bash
-~/usr/spark-3.5.3$ jupyter lab \
---notebook-dir=/usr/spark-3.5.3/work_dir/notebooks \
+~/usr/spark-3.5.4$ jupyter lab \
+--notebook-dir=/usr/spark-3.5.4/work_dir/notebooks \
 --ip='0.0.0.0' \
 --port=8888 \
 --no-browser \
