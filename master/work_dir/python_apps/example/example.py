@@ -25,7 +25,7 @@ example.py \
 """
 
 __author__ = "alvertogit"
-__copyright__ = "Copyright 2018-2024"
+__copyright__ = "Copyright 2018-2025"
 
 
 import os
