@@ -10,11 +10,11 @@ jupyterlab==4.3.4
 matplotlib==3.10.0
 numpy==2.0.2
 pandas==2.2.3
-pre-commit==4.0.1
+pre-commit==4.1.0
 pur==7.3.3
 pydot==3.0.4
 requests==2.32.3
-ruff==0.9.1
+ruff==0.9.3
 scikit-image==0.25.0
 scikit-learn==1.6.1
 seaborn==0.13.2
