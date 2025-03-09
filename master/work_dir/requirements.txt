@@ -14,11 +14,11 @@ pre-commit==4.1.0
 pur==7.3.3
 pydot==3.0.4
 requests==2.32.3
-ruff==0.9.9
+ruff==0.9.10
 scikit-image==0.25.2
 scikit-learn==1.6.1
 seaborn==0.13.2
-Sphinx==8.2.1
+Sphinx==8.2.3
 sphinx-rtd-theme==3.0.2
 tensorflow==2.18.0
 TPOT==0.12.2
