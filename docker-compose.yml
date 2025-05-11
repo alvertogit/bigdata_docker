@@ -31,7 +31,7 @@ services:
   worker:
     build:
       context: ./master
-      target: spark
+      target: spark-node
     command: sbin/start-worker.sh spark://master:7077
     init: true
     depends_on:

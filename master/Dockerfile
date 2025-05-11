@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-noble AS spark
+FROM eclipse-temurin:17-jdk-noble AS spark-node
 
 RUN apt-get update \
     && apt-get install -y curl procps unzip wget \
@@ -38,7 +38,7 @@ WORKDIR $SPARK_HOME
 
 CMD ["sbin/start-master.sh"]
 
-FROM spark AS spark-master
+FROM spark-node AS spark-master
 
 # PYTHON
 
@@ -71,8 +71,8 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
-RUN python3 -m pip install pip==25.0.1
-RUN python3 -m pip install setuptools==78.1.0
+RUN python3 -m pip install pip==25.1.1
+RUN python3 -m pip install setuptools==80.4.0
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN

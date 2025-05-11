@@ -20,8 +20,8 @@ The code has been tested using:
 
 - [Apache Spark] (3.5): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 - [Hadoop] (3.4): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
-- [Docker] (28.0): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
-- [Docker Compose] (2.34): a tool for defining and running multi-container [Docker] applications.
+- [Docker] (28.1): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+- [Docker Compose] (2.35): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
@@ -44,7 +44,7 @@ The main components of this virtual environment are listed below:
 - [ipyleaflet] (0.19): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
 - [Seaborn] (0.13): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
 - [imbalanced-learn] (0.13): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
-- [joblib] (1.4): a set of tools to provide lightweight pipelining in [Python].
+- [joblib] (1.5): a set of tools to provide lightweight pipelining in [Python].
 - [findspark] (2.0): a package to make [Spark] Context available in [Jupyter Notebook].
 
 It is available in the [Spark] master node created with [Docker Compose].
