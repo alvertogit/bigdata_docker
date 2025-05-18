@@ -1,5 +1,5 @@
 findspark==2.0.1
-folium==0.19.5
+folium==0.19.6
 geojson==3.2.0
 graphviz==0.20.3
 imbalanced-learn==0.13.0
@@ -14,7 +14,7 @@ pre-commit==4.2.0
 pur==7.3.3
 pydot==4.0.0
 requests==2.32.3
-ruff==0.11.9
+ruff==0.11.10
 scikit-image==0.25.2
 scikit-learn==1.6.1
 seaborn==0.13.2
@@ -22,4 +22,4 @@ Sphinx==8.2.3
 sphinx-rtd-theme==3.0.2
 tensorflow==2.19.0
 tpot==0.12.2
-xgboost==3.0.0
+xgboost==3.0.1
