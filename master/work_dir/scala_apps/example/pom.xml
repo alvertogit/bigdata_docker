@@ -8,9 +8,9 @@
 
   <properties>
     <hadoop.version>3.4.1</hadoop.version>
-    <spark.version>3.5.5</spark.version>
-    <scala.version>2.12.11</scala.version>
-    <scala.binary.version>2.12</scala.binary.version>
+    <spark.version>4.0.0</spark.version>
+    <scala.version>2.13.16</scala.version>
+    <scala.binary.version>2.13</scala.binary.version>
     <elasticsearch.binary.version>20_2.11</elasticsearch.binary.version>
     <elasticsearch.version>7.10.2</elasticsearch.version>
     <java.version>17</java.version>
@@ -68,7 +68,7 @@
       <plugin>
         <groupId>net.alchim31.maven</groupId>
         <artifactId>scala-maven-plugin</artifactId>
-	    <version>4.9.2</version>
+	    <version>4.9.5</version>
         <executions>
           <execution>
             <goals>
@@ -79,7 +79,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-	    <version>3.13.0</version>
+	    <version>3.14.0</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>

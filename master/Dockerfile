@@ -22,7 +22,7 @@ RUN curl -sL --retry 3 \
 
 # SPARK
 
-ENV SPARK_VERSION=3.5.5
+ENV SPARK_VERSION=4.0.0
 ENV SPARK_PACKAGE=spark-${SPARK_VERSION}-bin-without-hadoop
 ENV SPARK_HOME=/usr/spark-${SPARK_VERSION}
 ENV SPARK_DIST_CLASSPATH="$HADOOP_HOME/etc/hadoop/*:$HADOOP_HOME/share/hadoop/common/lib/*:$HADOOP_HOME/share/hadoop/common/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/hdfs/lib/*:$HADOOP_HOME/share/hadoop/hdfs/*:$HADOOP_HOME/share/hadoop/yarn/lib/*:$HADOOP_HOME/share/hadoop/yarn/*:$HADOOP_HOME/share/hadoop/mapreduce/lib/*:$HADOOP_HOME/share/hadoop/mapreduce/*:$HADOOP_HOME/share/hadoop/tools/lib/*"
@@ -72,7 +72,7 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN python3 -m pip install pip==25.1.1
-RUN python3 -m pip install setuptools==80.7.1
+RUN python3 -m pip install setuptools==80.9.0
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN
