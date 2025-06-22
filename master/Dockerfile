@@ -51,7 +51,7 @@ RUN apt-get update --fix-missing \
 
 WORKDIR /usr/spark-${SPARK_VERSION}/
 
-ENV MAVEN_VERSION=3.9.9
+ENV MAVEN_VERSION=3.9.10
 RUN mkdir /opt/apache-maven
 RUN wget --quiet -c https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz -O apache-maven.tar.gz && \
     tar xzvf apache-maven.tar.gz -C /opt/apache-maven --strip-components=1 && \

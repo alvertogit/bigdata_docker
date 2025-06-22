@@ -20,8 +20,8 @@ The code has been tested using:
 
 - [Apache Spark] (4.0): an unified analytics engine for [Big Data] processing, with built-in modules for streaming, [SQL], [Machine Learning] and graph processing. It has high-level [API]s in [Scala] and [Python].
 - [Hadoop] (3.4): an open-source software for reliable, scalable, distributed computing. It uses [Hadoop Distributed File System] ([HDFS]) which is suitable to work with large [RDD] (Resilient Distributed Datasets).
-- [Docker] (28.1): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
-- [Docker Compose] (2.35): a tool for defining and running multi-container [Docker] applications.
+- [Docker] (28.2): an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+- [Docker Compose] (2.36): a tool for defining and running multi-container [Docker] applications.
 
 ### PYTHON VIRTUAL ENVIRONMENT
 
@@ -35,13 +35,13 @@ The main components of this virtual environment are listed below:
 - [TensorFlow] (2.19): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
 - [Matplotlib] (3.10): a plotting library for [Python] and its numerical mathematics extension [NumPy].
 - [NumPy] (2.1): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
-- [Pandas] (2.2):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
+- [Pandas] (2.3):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
 - [scikit-learn] (1.6): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
 - [scikit-image] (0.25): a collection of algorithms for image processing with [Python].
 - [TPOT] (0.12): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
 - [XGBoost] (3.0): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
-- [Folium] (0.19): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
-- [ipyleaflet] (0.19): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
+- [Folium] (0.20): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
+- [ipyleaflet] (0.20): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
 - [Seaborn] (0.13): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
 - [imbalanced-learn] (0.13): a [Python] package offering a number of re-sampling techniques commonly used in datasets showing strong between-class imbalance. It is compatible with [scikit-learn] and it allows [SMOTE (Synthetic Minority Over-sampling Technique)].
 - [joblib] (1.5): a set of tools to provide lightweight pipelining in [Python].
