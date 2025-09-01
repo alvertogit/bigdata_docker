@@ -9,12 +9,12 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 # HADOOP
 
-ENV HADOOP_VERSION=3.4.1
+ENV HADOOP_VERSION=3.4.2
 ENV HADOOP_HOME=/usr/hadoop-$HADOOP_VERSION
 ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 ENV PATH=$PATH:$HADOOP_HOME/bin
 RUN curl -sL --retry 3 \
-    "https://www-eu.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz" \
+    "https://www-eu.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION-lean.tar.gz" \
     | gunzip \
     | tar -x -C /usr/ \
     && rm -rf $HADOOP_HOME/share/doc \
