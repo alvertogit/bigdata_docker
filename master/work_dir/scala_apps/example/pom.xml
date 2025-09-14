@@ -8,11 +8,10 @@
 
   <properties>
     <hadoop.version>3.4.2</hadoop.version>
-    <spark.version>4.0.0</spark.version>
+    <spark.version>4.0.1</spark.version>
     <scala.version>2.13.16</scala.version>
     <scala.binary.version>2.13</scala.binary.version>
-    <elasticsearch.binary.version>20_2.11</elasticsearch.binary.version>
-    <elasticsearch.version>7.10.2</elasticsearch.version>
+    <opensearch.version>3.2.0</opensearch.version>
     <java.version>17</java.version>
     <spark.kafka.version>${spark.version}</spark.kafka.version>
   </properties>
@@ -56,10 +55,23 @@
          <version>${hadoop.version}</version>
        </dependency>
 
-      <dependency> <!-- Elasticsearch -->
-        <groupId>org.elasticsearch</groupId>
-        <artifactId>elasticsearch-spark-${elasticsearch.binary.version}</artifactId>
-        <version>${elasticsearch.version}</version>
+      <dependency> <!-- OpenSearch -->
+        <groupId>org.opensearch</groupId>
+        <artifactId>opensearch</artifactId>
+        <version>${opensearch.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.opensearch.client</groupId>
+        <artifactId>opensearch-hadoop</artifactId>
+        <version>1.3.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.opensearch.client</groupId>
+        <artifactId>opensearch-spark-30_2.13</artifactId>
+        <version>1.3.0</version>
       </dependency>
   </dependencies>
 
