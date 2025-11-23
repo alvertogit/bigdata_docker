@@ -6,16 +6,16 @@ imbalanced-learn==0.14.0
 ipyleaflet==0.20.0
 ipywidgets==8.1.8
 joblib==1.5.2
-jupyterlab==4.4.10
+jupyterlab==4.5.0
 matplotlib==3.10.7
-numpy==2.3.4
+numpy==2.3.5
 pandas==2.3.3
-pre-commit==4.4.0
+pre-commit==4.5.0
 pur==7.3.3
 pydot==4.0.1
 pyspark-client==4.0.1
 requests==2.32.5
-ruff==0.14.4
+ruff==0.14.6
 scikit-image==0.25.2
 scikit-learn==1.7.2
 seaborn==0.13.2
@@ -23,4 +23,4 @@ Sphinx==8.2.3
 sphinx-rtd-theme==3.0.2
 tensorflow==2.20.0
 tpot==1.1.0
-xgboost==3.1.1
+xgboost==3.1.2
