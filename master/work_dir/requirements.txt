@@ -15,11 +15,11 @@ pur==7.3.3
 pydot==4.0.1
 pyspark-client==4.0.1
 requests==2.32.5
-ruff==0.14.6
+ruff==0.14.7
 scikit-image==0.25.2
 scikit-learn==1.7.2
 seaborn==0.13.2
-Sphinx==8.2.3
+Sphinx==9.0.0
 sphinx-rtd-theme==3.0.2
 tensorflow==2.20.0
 tpot==1.1.0
