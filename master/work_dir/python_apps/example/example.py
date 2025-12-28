@@ -3,7 +3,7 @@ example.py: pyspark application example.
 
 Local execution command example:
 
-~/usr/spark-4.0.1/work_dir/python_apps/example$ spark-submit \
+~/usr/spark-4.1.0/work_dir/python_apps/example$ spark-submit \
 --master local[2] \
 --driver-memory 10g \
 example.py \
@@ -14,7 +14,7 @@ example.py \
 
 Worker execution command example:
 
-~/usr/spark-4.0.1/work_dir/python_apps/example$ spark-submit \
+~/usr/spark-4.1.0/work_dir/python_apps/example$ spark-submit \
 --master spark://master:7077 \
 --driver-memory 10g \
 example.py \
@@ -50,9 +50,7 @@ if __name__ == "__main__":
     path_output_log = sys.argv[5]
 
     def rangeId(user_id):
-        if user_id >= minRangeId and user_id <= maxRangeId:
-            return True
-        return False
+        return user_id >= minRangeId and user_id <= maxRangeId
 
     os.environ["PYSPARK_PYTHON"] = sys.executable
     os.environ["PYSPARK_DRIVER_PYTHON"] = sys.executable
