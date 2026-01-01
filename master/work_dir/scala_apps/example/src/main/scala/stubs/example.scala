@@ -1,7 +1,7 @@
 /**
 
 @author alvertogit
-Copyright 2018-2025
+Copyright 2018-2026
 
 Local execution command example:
 

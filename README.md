@@ -274,7 +274,7 @@ To shutdown the [Jupyter Lab] service in the master node simply press 'Control+C
 ## CREDITS
 
 author: alvertogit
-copyright: 2018-2025
+copyright: 2018-2026
 
 [Data Science]: https://en.wikipedia.org/wiki/Data_science
 [Big Data]: https://en.wikipedia.org/wiki/Big_data
