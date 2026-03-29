@@ -9,12 +9,12 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 # HADOOP
 
-ENV HADOOP_VERSION=3.4.2
+ENV HADOOP_VERSION=3.4.3
 ENV HADOOP_HOME=/usr/hadoop-$HADOOP_VERSION
 ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 ENV PATH=$PATH:$HADOOP_HOME/bin
 RUN curl -sL --retry 3 \
-    "https://www-eu.apache.org/dist/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION-lean.tar.gz" \
+    "https://dlcdn.apache.org/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz" \
     | gunzip \
     | tar -x -C /usr/ \
     && rm -rf $HADOOP_HOME/share/doc \
@@ -51,7 +51,7 @@ RUN apt-get update --fix-missing \
 
 WORKDIR /usr/spark-${SPARK_VERSION}/
 
-ENV MAVEN_VERSION=3.9.12
+ENV MAVEN_VERSION=3.9.14
 RUN mkdir /opt/apache-maven
 RUN wget --quiet -c https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz -O apache-maven.tar.gz && \
     tar xzvf apache-maven.tar.gz -C /opt/apache-maven --strip-components=1 && \
@@ -72,7 +72,7 @@ ADD ./work_dir /usr/spark-${SPARK_VERSION}/work_dir
 RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 RUN python3 -m pip install pip==26.0.1
-RUN python3 -m pip install setuptools==82.0.0
+RUN python3 -m pip install setuptools==82.0.1
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Compiling Scala example with MAVEN
