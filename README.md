@@ -30,16 +30,16 @@ The virtual environment employed for [Data Science] applications is generated fr
 The main components of this virtual environment are listed below:
 
 - [Python] (3.12): an interpreted high-level programming language for general-purpose programming.
-- [Jupyter Lab] (4.5): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
+- [Jupyter Lab] (4.6): a web-based interactive development environment for [Jupyter Notebooks], code, and data.
 - [Keras] ([TensorFlow] built-in): a high-level neural networks [API], written in [Python] and capable of running on top of [TensorFlow], CNTK, or Theano.
 - [TensorFlow] (2.21): an open source [Deep Learning] library for high performance numerical computation using data flow graphs.
-- [Matplotlib] (3.10): a plotting library for [Python] and its numerical mathematics extension [NumPy].
+- [Matplotlib] (3.11): a plotting library for [Python] and its numerical mathematics extension [NumPy].
 - [NumPy] (2.4): a library for [Python], adding support for large, multi-dimensional arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays.
 - [Pandas] (3.0):  an open source library providing high-performance, easy-to-use data structures and data analysis tools for [Python].
-- [scikit-learn] (1.7): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
+- [scikit-learn] (1.9): a [machine learning] library for [Python]. It features various classification, regression and clustering algorithms including support vector machines, [random forest], [gradient boosting], k-means and DBSCAN.
 - [scikit-image] (0.26): a collection of algorithms for image processing with [Python].
 - [TPOT] (1.1): a [Python] Automated [Machine Learning] tool that optimizes [machine learning] pipelines using genetic programming.
-- [XGBoost] (3.2): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
+- [XGBoost] (3.3): an optimized distributed [gradient boosting] library designed to be highly efficient, flexible and portable.
 - [Folium] (0.20): an open source library to visualize data that has been manipulated in [Python] on an interactive [Leaflet.js] map.
 - [ipyleaflet] (0.20): a [Jupyter] / [Leaflet.js] bridge enabling interactive maps in [Jupyter Notebook].
 - [Seaborn] (0.13): a [Python] visualization library based on [Matplotlib]. It provides a high-level interface for drawing attractive statistical graphics.
