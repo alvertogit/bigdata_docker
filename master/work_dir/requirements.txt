@@ -4,8 +4,8 @@ geojson==3.3.0
 graphviz==0.21
 imbalanced-learn==0.14.2
 ipyleaflet==0.20.0
-ipywidgets==8.1.8
-joblib==1.5.3
+ipywidgets==8.1.9
+joblib==1.6.0
 jupyterlab==4.6.3
 matplotlib==3.11.1
 numpy==2.4.6
@@ -15,7 +15,7 @@ pur==7.4.0
 pydot==4.0.1
 pyspark-client==4.2.0
 requests==2.34.2
-ruff==0.16.3
+ruff==0.16.6
 scikit-image==0.26.0
 scikit-learn==1.9.0
 seaborn==0.13.2
